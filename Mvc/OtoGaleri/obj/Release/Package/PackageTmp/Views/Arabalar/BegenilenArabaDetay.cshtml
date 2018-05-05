@@ -1,0 +1,78 @@
+﻿@model OtoGaleri_Entities.Tablolar.SifirBegenilenArabalar
+@{
+    ViewBag.Title = "BegenilenArabaDetay";
+}
+<title>Beğenilen Arabalar Detay</title>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h4>Araba</h4>
+        <hr />
+
+        <img src="~/Images/@Model.Araba.Resim1" class="img-circle" width="128" height="128" />
+        @Html.HiddenFor(model => model.Araba.Resim1)
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Araba.Marka)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Araba.Marka)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Araba.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Araba.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Araba.Kasatipi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Araba.Kasatipi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Araba.Renk)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Araba.Renk)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Araba.Fiyat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Araba.Fiyat)
+            </dd>
+         
+        </dl>
+        
+           
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                
+                <div class="form-actions no-color">
+                    <button type="submit" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove"></span>Sil
+                    </button>
+                   
+                    @Html.ActionLink("Listeye Dön", "BegenilenAraba", "Arabalar", null, new { @class = "btn btn-default" })
+                </div>
+            }
+
+        
+</div>
+    </div>
+

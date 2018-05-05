@@ -1,0 +1,206 @@
+﻿@model OtoGaleri_Entities.Tablolar.Arabalar
+@{
+    Layout = null;
+}
+
+@*<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>BosDetails</title>
+</head>
+<body>
+    <div> 
+    </div>
+</body>
+</html>*@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">      
+        <img src="~/Images/@Model.Resim1" class="img-circle" width="128" height="128" />
+        @Html.HiddenFor(model => model.Resim1)
+
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IlanTarihi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IlanTarihi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Marka)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Marka)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Yil)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Yil)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Yakit)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Yakit)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Vites)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Vites)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Garanti)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Garanti)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Kasatipi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Kasatipi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MotorGucu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MotorGucu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MotorHacmi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MotorHacmi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cekis)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cekis)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Renk)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Renk)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ArabayiEkleyen)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ArabayiEkleyen)
+            </dd>
+            @*bas*@
+            @if (Model.Durum == OtoGaleri_Entities.ArabalarEnums.Durum2.IkinciEl)
+            {
+
+                <dt>
+                    @Html.DisplayName("Km")
+                </dt>
+
+                <dd>
+                    @TempData["km"]
+                </dd>
+            }
+            @*son*@
+            <dt>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fiyat)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EklenmeTarihi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EklenmeTarihi)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Durum)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Durum)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tipi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tipi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </dt>
+
+            <dd>
+                @Html.TextAreaFor(model => model.Aciklama, new { @class = "form-control", @rows = 3, disabled = "disabled" })
+            </dd>
+
+        </dl>
+
+        <p>
+            @if (Session["loginy"] != null || Session["loginp"] != null)
+            {
+                <a href="/Arabalar/Edit/@Model.Id" class="btn btn-success">
+                    <span class="glyphicon glyphicon-edit"></span>Düzenle
+                </a>
+                <a href="/Arabalar/Index" class="btn btn-default">
+                    <span class="glyphicon glyphicon-arrow-left"></span>Tüm Liste
+                </a>
+            }
+            else
+            {
+                <a href="/Home/Index" class="btn btn-success">
+                    <span class="glyphicon glyphicon-home"></span>AnaSayfa
+                </a>
+
+            }
+
+        </p>
+    </div>
+</div>
+

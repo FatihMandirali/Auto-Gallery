@@ -1,0 +1,36 @@
+﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.FaturaTur>
+@{
+    ViewBag.Title = "FaturaTuruGor";
+}
+<title>Fatura Türü Gör</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Fatura Türleri</h2>
+        <hr />
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaturaAdi)
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaturaAdi)
+                    </td>
+
+                </tr>
+            }
+
+</table>
+        @Html.ActionLink("Faturalara Dön", "FaturaGor", "Ekonomi", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Faturalara Türü Ekle", "FaturaTuru", "Ekonomi", null, new { @class = "btn btn-primary" })
+
+</div>
+</div>

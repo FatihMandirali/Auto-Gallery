@@ -1,0 +1,94 @@
+﻿@using OtoGaleri_Entities.Tablolar
+@model  IEnumerable<OtoGaleri_Entities.Tablolar.IkinciElSatilmisArabalar>
+@{
+    ViewBag.Title = "KullaniciIkinciEl";
+}
+<title>İkinci El Aldığım Arabalar</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>İkinci El Satın Aldığım Arabalar</h2>
+        <hr />
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-md-offset-1">
+
+        <p>
+            İkinci El Arabaya Verdiğim Para =  @TempData["ikincielverdigimpara"] ₺
+        </p>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+        <table class="table">
+            <tr>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.IkinciElArabalar.Arabaid.Marka)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IkinciElArabalar.Arabaid.Model)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.IkinciElArabalar.Arabaid.Kasatipi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IkinciElArabalar.Arabaid.Renk)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IkinciElArabalar.Arabaid.Fiyat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SatanPersonel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SatilanUcret)
+                </th>
+               
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IkinciElArabalar.Arabaid.Marka)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IkinciElArabalar.Arabaid.Model)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IkinciElArabalar.Arabaid.Kasatipi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IkinciElArabalar.Arabaid.Renk)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IkinciElArabalar.Arabaid.Fiyat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SatanPersonel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SatilanUcret)
+                    </td>
+                   
+                </tr>
+            }
+        </table>
+
+
+
+
+
+        </div>
+
+    </div>
+

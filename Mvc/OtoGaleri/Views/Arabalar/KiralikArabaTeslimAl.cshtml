@@ -1,0 +1,117 @@
+﻿@model OtoGaleri_Entities.Tablolar.KirayaVerilmisArabalar
+@{
+    ViewBag.Title = "KiralikArabaTeslimAl";
+}
+<title>Kiralık Araba Teslim Al</title>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Kiralık Araba Teslim Al</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h4>Arabalar</h4>
+        <hr />
+        <img src="~/Images/@Model.KiralikAraba.Arabaid.Resim1" class="img-circle" width="128" height="128" />
+        @Html.HiddenFor(model => model.KiralikAraba.Arabaid.Resim1)
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HangiKullanici.Adi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HangiKullanici.Adi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HangiKullanici.Soyadi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HangiKullanici.Soyadi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HangiKullanici.Tc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HangiKullanici.Tc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.HangiKullanici.Eposta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HangiKullanici.Eposta)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Marka)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Marka)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Model)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Kasatipi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Kasatipi)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Renk)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Renk)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Vites)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Vites)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Yakit)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Yakit)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Fiyat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Fiyat)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.AlinacakUcret)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AlinacakUcret)
+            </dd>
+          
+
+         </dl>
+        @using (Html.BeginForm())
+        {
+            <button type="submit" class="btn btn-success">
+                <span class="glyphicon glyphicon-ok-sign"></span>Teslim Al
+            </button>
+        }
+
+</div>
+    </div>
+

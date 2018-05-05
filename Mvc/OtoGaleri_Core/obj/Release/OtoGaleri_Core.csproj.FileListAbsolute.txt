@@ -1,0 +1,5 @@
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Core\bin\Release\OtoGaleri_Core.dll
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Core\bin\Release\OtoGaleri_Core.pdb
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Core\obj\Release\OtoGaleri_Core.csprojResolveAssemblyReference.cache
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Core\obj\Release\OtoGaleri_Core.dll
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Core\obj\Release\OtoGaleri_Core.pdb

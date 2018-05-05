@@ -1,0 +1,66 @@
+﻿@model OtoGaleri_Entities.Tablolar.Mesajlasma
+@{
+    ViewBag.Title = "KullaniciCevap";
+}
+<title>Mesaj Yanıtla</title>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Mesajı Yanıtla</h2>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        @using (Html.BeginForm())
+        {
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Mesaj)
+                </dt>
+
+                <dd>
+                    @Html.TextAreaFor(model => model.Yanit, new { @class = "form-control", @rows = 3, disabled = "disabled" })
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Okundumu)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Okundumu)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GondermeTarihi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GondermeTarihi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Yanit)
+                </dt>
+
+                <dd>
+                    @Html.EditorFor(model => model.Yanit, new { htmlAttributes = new { @class = "form-control" } })
+                </dd>
+
+
+
+            </dl>
+
+            <p>
+
+                <a href="/Home/MesajKutusuY" class="btn btn-success">
+                    <span class="glyphicon glyphicon-home"></span>Mesaj Kutusu
+                </a>
+
+                <button class="btn btn-default" type="submit">Cevapla</button>
+
+            </p>
+        }
+    </div>
+</div>

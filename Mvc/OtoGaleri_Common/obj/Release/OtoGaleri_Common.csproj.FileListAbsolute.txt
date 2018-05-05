@@ -1,0 +1,5 @@
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Common\bin\Release\OtoGaleri_Common.dll
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Common\bin\Release\OtoGaleri_Common.pdb
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Common\obj\Release\OtoGaleri_Common.dll
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Common\obj\Release\OtoGaleri_Common.pdb
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Common\obj\Release\OtoGaleri_Common.csprojResolveAssemblyReference.cache

@@ -1,0 +1,68 @@
+﻿@using OtoGaleri_Entities.Tablolar
+@model Kullanicilar
+@{
+    ViewBag.Title = "Kullanıcı Profili";
+}
+<title>Profili Göster</title>
+<div class="container">
+    <div class="row">
+        <h2>@ViewBag.Title</h2>
+        <hr />
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <img src="~/images/@Model.Resim" class="img-circle" width="128" height="128" />
+
+
+        </div>
+        <div class="col-md-8">
+            <h3>@(Model.Adi + " " + Model.Soyadi)</h3>
+            <br />
+            <h5><b>@Html.DisplayNameFor(model => model.KullaniciAdi) : </b>@Model.KullaniciAdi</h5>
+            <h5><b>@Html.DisplayNameFor(model => model.Eposta) : </b>@Model.Eposta</h5>
+            <br />
+           
+        </div>
+
+        <div class="col-md-2 text-right">
+            <div class="btn-group">
+                
+                    <a href="#" class="btn dropdown-toggle btn-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span class="glyphicon glyphicon-briefcase"></span>Yönetim <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Home/EditProfileK"><span class="glyphicon glyphicon-user"></span>Düzenle</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/Home/DeleteProfileK" onclick="return confirm('Silmek istediğinize emin misiniz ?');"><span class="glyphicon glyphicon-edit"></span>Sil</a></li>
+
+                    </ul>
+               
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>
+
+@*<script>
+        $(function () {
+
+        });
+
+
+
+    </script>*@
+
+
+
+
+
+
+
+
+

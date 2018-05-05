@@ -1,0 +1,135 @@
+﻿@model OtoGaleri_Entities.Tablolar.Yoneticiler
+
+@{
+    ViewBag.Title = "Details";
+}
+<title>Yönetici Detay</title>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h4>Yöneticiler</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <img src="~/Images/@Model.Resim" class="img-circle" width="128" height="128" />
+                @Html.HiddenFor(model => model.Resim)
+                </div>
+            </div>
+                
+                <dl class="dl-horizontal">
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Adi)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Adi)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Soyadi)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Soyadi)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Tc)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Tc)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Eposta)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Eposta)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DogumTarih)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DogumTarih)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Telefon)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Telefon)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KayitTarih)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.KayitTarih)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KimKayitEtti)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.KimKayitEtti)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.KullaniciAdi)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.KullaniciAdi)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Sifre)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Sifre)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Adres)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Adres)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.IsActive)
+                    </dd>
+
+
+
+                </dl>
+
+                <p>
+
+                    <a href="/Yonetim/Edit/@Model.Id" class="btn btn-success">
+                        <span class="glyphicon glyphicon-edit"></span>Düzenle
+                    </a>
+                    <a href="/Yonetim/Index" class="btn btn-default">
+                        <span class="glyphicon glyphicon-arrow-left"></span>Tüm Liste
+                    </a>
+                </p>
+            </div>
+        </div>

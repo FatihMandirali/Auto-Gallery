@@ -1,0 +1,84 @@
+﻿@using OtoGaleri_BusinessLayer
+@using  OtoGaleri_Entities.Tablolar@*.Tabloları sil hata alırsan*@
+
+
+@{ 
+
+    /* int a = 0;
+     int[] dizi;
+     foreach (int deger in Enum.GetValues(typeof(@OtoGaleri_Entities.ArabalarEnums.Durum2))){
+        dizi[a] = deger;   @OtoGaleri_Entities.ArabalarEnums.Durum2.IkinciEl
+         a++;
+
+     }*/
+    FaturalarManager fd = new FaturalarManager();
+    Faturalar f = fd.Find(x => x.OdemeTarihi <= DateTime.Now && x.Odendimi == false);
+    KirayaVerilmisArabalarManager kcm = new KirayaVerilmisArabalarManager();
+    KirayaVerilmisArabalar ka = kcm.Find(x => x.KiradanAlamaTarih <= DateTime.Now && x.IslemAktiflik==true);
+    MesajlasmaManager m_manager = new MesajlasmaManager();
+    Kullanicilar kkk;
+    Mesajlasma mesaj1;
+    if (Session["logink"] != null) {
+        kkk = Session["logink"] as Kullanicilar;
+        mesaj1 = m_manager.Find(x => x.GonderenKullanici.Id == kkk.Id && x.Kokudumu == false);
+    }
+    else
+    {
+        mesaj1 = null;
+    }
+    Mesajlasma mesaj = m_manager.Find(x => x.Okundumu == false );
+
+
+
+}
+   @if (mesaj != null  && Session["loginy"] != null )
+   {
+    <a href="/Home/MesajKutusuY" onclick=" return confirm('Mesaj Kutusuna gitmeyi onaylıyor musunuz ?.');  " class="btn btn-danger pull-left">
+        !!Cevaplanmamış Mesaj Var
+    </a><br /><br />
+   }
+   @if (mesaj1 != null)
+   {
+    <a href="/Home/MesajKutusuK" onclick=" return confirm('Mesaj Kutusuna gitmeyi onaylıyor musunuz ?.');  " class="btn btn-danger pull-left">
+        !!Mesajına Yanıt Var
+    </a><br /><br />
+   }
+  
+
+
+    @if (DateTime.Now.Day == 22 && Session["loginy"]!=null)
+    {
+        <a href="/Ekonomi/Masraflar" onclick=" return confirm('Maaş ödeme bölümüne girişi onaylıyor musunuz ?.');  " class="btn btn-danger pull-left">
+            !!Maaş Günü
+        </a><br /><br />
+    }
+    @if (f != null && Session["loginy"]!=null)
+    {
+        <a href="/Ekonomi/FaturaGor" onclick=" return confirm('Fatura ödeme bölümüne girişi onaylıyor musunuz ?.');  " class="btn btn-danger pull-left">
+            !!Ödenmeyen Fatura
+        </a><br /><br />
+    }
+@if (ka != null && Session["loginy"] != null)
+{
+    <a href="/Arabalar/PersonelKiralananArabalar" onclick=" return confirm('Kiralık arabalar bölümüne girişi onaylıyor musunuz ?.');  " class="btn btn-danger pull-left">
+        !!Kiradan Dönecek Araba
+    </a><br /><br />
+}
+<p class="lead">Kategoriler</p>
+<div class="list-group">
+    <a href="@Url.Action("Index","Home")" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Tüm Arabaları Gör</a>
+    <a href="/Home/Category/0" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Sıfır Arabaları Gör</a>
+    <a href="/Home/Category/1" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>İkinci El Arabaları Gör</a>
+    <a href="/Home/Category/2" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Kiralık Arabaları Gör</a>
+    <a href="#" class="list-group-item" id="arama" onclick="$('#aramaInput').slideToggle()"><span class="glyphicon glyphicon-search"></span> Arama Yap</a>
+</div>
+
+<input type="text" class="form-control" id="aramaInput" style="display:none" />
+<script>
+    if (document.getElementById("aramaInput").style.display == "none") {
+        document.getElementById("aramaInput").innerHTML = "";
+    }
+
+
+</script>
+

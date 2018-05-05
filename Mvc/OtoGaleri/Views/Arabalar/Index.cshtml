@@ -1,0 +1,199 @@
+﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.Arabalar>
+@using OtoGaleri_Entities.Tablolar
+@{
+    ViewBag.Title = "Index";
+}
+<title>Arabalar</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Kullanıcılar</h2>
+        <hr />
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+        <p>
+            @if (Session["loginp"] == null)
+            {
+            <a href="/Arabalar/Create" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>Oluştur
+            </a>
+            }
+        </p>
+        
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IlanTarihi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Marka)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Model)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Yil)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Yakit)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Vites)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.Kasatipi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MotorGucu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MotorHacmi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cekis)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Renk)
+                </th>
+              
+                <th>
+                    @Html.DisplayNameFor(model => model.Fiyat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EklenmeTarihi)
+                </th>
+               
+                <th>
+                    @Html.DisplayNameFor(model => model.Durum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tipi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Aciklama)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                if (item.IslemYapabilme == true)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IlanTarihi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Marka)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Yil)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Yakit)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Vites)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kasatipi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MotorGucu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MotorHacmi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cekis)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Renk)
+                    </td>
+                 
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fiyat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EklenmeTarihi)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Durum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipi)
+                    </td>
+                    <td>
+                        @if (item.Aciklama.Length > 20)
+                        {
+                        //ve mesaj kutusunda yönetici msjın hangi kullanıcıdan geldigini görsün.
+                        @(item.Aciklama.Substring(0, 20) + "....")
+                        }
+                        else
+                        {
+                        @Html.DisplayFor(modelItem => item.Aciklama)
+                        }
+                        
+                    </td>
+                    <td>
+                        @if (Session["loginp"] != null || item.IslemYapabilme == false)
+                        {
+                            <a href="/Arabalar/Details/@item.Id" class="btn btn-info">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </a>
+                        }
+                        else
+                        {
+                       <a href="/Arabalar/Edit/@item.Id" class="btn btn-warning">
+                        <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+
+                       <a href="/Arabalar/Delete/@item.Id" class="btn btn-danger">
+                         <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                        <a href="/Arabalar/Details/@item.Id" class="btn btn-info">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>
+                        }
+                    </td>
+                    
+                </tr>
+                }
+            }
+
+        </table>
+        </div>
+    </div>
+
+
+@*<script type="text/javascript">
+    function showPup() {
+        $("#divContailPup").dialog({
+            height: 400,
+            width: 500,
+            modal: true,
+            buttons: {
+                "OK": function () {
+                    $(this).dialog("close");
+                    alert("you selected ok")
+                },
+                "Cancel": function () {
+                    $(this).dialog("close");
+                }
+            }
+
+        });
+    }
+
+
+</script>*@

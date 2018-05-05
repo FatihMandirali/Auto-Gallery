@@ -1,0 +1,167 @@
+﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.Gelirler>
+@{
+    ViewBag.Title = "Gelirler";
+}
+<title>Araba Gelirleri</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Gelirler</h2>
+        <hr />
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-2 col-md-offset-1">
+
+        <p>
+            Kiradan gelen gelir = @TempData["VeriKiralik"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-2 col-md-offset-0">
+
+        <p>
+            Sıfır gelen gelir = @TempData["VeriSifir"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-2 col-md-offset-0">
+
+        <p>
+            İkinci El gelen gelir = @TempData["VeriIkinci"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-2 col-md-offset-0">
+
+        <p>
+            Toplam gelen gelir = @TempData["VeriToplam"] ₺
+        </p>
+
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+        <hr />
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kullanici.Adi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kullanici.Soyadi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kullanici.Tc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kullanici.Telefon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kullanici.Eposta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Araba.Marka)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Araba.Model)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Araba.Kasatipi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Araba.MotorGucu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Araba.Renk)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Araba.Fiyat)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Tarih)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fiyat)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Personel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ArabaninDurumu)
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kullanici.Adi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kullanici.Soyadi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kullanici.Tc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kullanici.Telefon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kullanici.Eposta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Araba.Marka)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Araba.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Araba.Kasatipi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Araba.MotorGucu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Araba.Renk)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Araba.Fiyat)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tarih)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fiyat)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Personel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ArabaninDurumu)
+                    </td>
+                   </tr>
+
+            }
+
+
+</table>
+
+
+</div>
+</div>

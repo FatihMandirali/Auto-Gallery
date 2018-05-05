@@ -1,0 +1,258 @@
+﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.Mesajlasma>
+@{
+    ViewBag.Title = "MesajKutusuK";
+}
+<title>Mesaj Kutusu</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1"> 
+        <table class="table">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Mesaj)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Okundumu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GondermeTarihi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Yanit)
+                </th>
+                <th>
+                    Okuyan Yetkili
+                </th>
+                <th>
+                    <span class="input-group-btn" id="btnmsjgonder">
+                        <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-send"></span>Gönder</button>
+                    </span>
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                if (item.Kokudumu == false)
+                {
+                    <tr>
+                        <td>
+                            @if (item.Mesaj == null)
+                            {
+                            <b id="mesaj">...</b>
+                            }
+                            else if (item.Mesaj.Length > 20)
+                            {
+                                //ve mesaj kutusunda yönetici msjın hangi kullanıcıdan geldigini görsün.
+                            @(item.Mesaj.Substring(0, 20) + "....")
+                            }
+                            else
+                            {
+                            @Html.DisplayFor(modelItem => item.Mesaj)
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Okundumu)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GondermeTarihi)
+                        </td>
+                        <td>
+                            @if (item.Yanit == null)
+                            {
+                            <b>...</b>
+                            }
+                            else if (item.Yanit.Length > 20 && item.Yanit != null)
+                            {
+                            @(item.Yanit.Substring(0, 20) + "....")
+                            }
+                            else
+                            {
+                            @Html.DisplayFor(modelItem => item.Yanit)
+                            }
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AlanKullanici)
+                        </td>
+
+                        <td>
+
+                            <a href="/Home/MesajDetay/@item.Id" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-copy"></span>
+                            </a>
+                            <a href="#" class="btn btn-danger" name="@item.Id" id="btnmsjsil">
+                                <span class="glyphicon glyphicon-floppy-remove"></span>
+                            </a>
+                            @if (item.Mesaj == null)
+                            {
+                            <a href="/Home/KullaniciCevap/@item.Id" class="btn btn-success">
+                                <span class="glyphicon glyphicon-copy"></span>
+                            </a>
+                            }
+
+
+
+                        </td>
+
+
+                    </tr>
+                }
+                else
+                {
+                    <tr style="background-color:lightblue;" >
+                        <td>
+                            @if (item.Mesaj == null)
+                            {
+                                <b id="mesaj">...</b>
+                            }
+                            else if (item.Mesaj.Length > 20)
+                            {
+                                //ve mesaj kutusunda yönetici msjın hangi kullanıcıdan geldigini görsün.
+                                @(item.Mesaj.Substring(0, 20) + "....")
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.Mesaj)
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Okundumu)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GondermeTarihi)
+                        </td>
+                        <td>
+                            @if (item.Yanit == null)
+                            {
+                                <b>...</b>
+                            }
+                            else if (item.Yanit.Length > 20 && item.Yanit != null)
+                            {
+                                @(item.Yanit.Substring(0, 20) + "....")
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.Yanit)
+                            }
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AlanKullanici)
+                        </td>
+
+                        <td>
+
+                            <a href="/Home/MesajDetay/@item.Id" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-copy"></span>
+                            </a>
+                            <a href="#" class="btn btn-danger" name="@item.Id" id="btnmsjsil">
+                                <span class="glyphicon glyphicon-floppy-remove"></span>
+                            </a>
+                            @if (item.Mesaj == null)
+                            {
+                                <a href="/Home/KullaniciCevap/@item.Id" class="btn btn-success">
+                                    <span class="glyphicon glyphicon-copy"></span>
+                                </a>
+                            }
+
+
+
+                        </td>
+
+
+                    </tr>
+                }
+
+
+
+            }
+
+
+        </table>
+
+
+
+    </div>
+</div>
+
+
+
+<script>
+    $(document).on("click", ".btn-danger", function () {
+        if (confirm("Mesajı silmek istediğinizden emin misiniz?")) {
+            var ID = $(this).attr('name');
+            $.ajax({
+                url: '/Home/MesajSilK/' + ID,//Ajax ile tetiklenecek ilgili adresi belirliyoruz.
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    //  $("#Durum").html(data); durum id li divin içine postta yazdığı yazıyı basıyor.
+                    alert(data);
+                    location.reload();
+                }
+            });
+        }
+    });
+
+</script>
+
+
+<div id="dialog-user" title="Kullanıcı Dialog">
+    @*@using (Ajax.BeginForm("MesajYolla", "Home", FormMethod.Post, new AjaxOptions { OnSuccess = "Create" }, new { id = "frm-create" }))*@
+
+    <div class="input-group ">
+        Mesajınız:
+        <br />
+        <textarea class="form-control" id="gonderilenmesaj" rows="4"></textarea>
+    </div>
+    <br />
+    <div>
+        <input type="submit" value="Gönder" id="btnmsjgonder1" class="btn btn-success" />
+    </div>
+
+
+</div>
+
+<script>
+    $("#btnmsjgonder").click(function () {
+        $("#dialog-user").dialog("open");
+    });
+    $("#dialog-user").dialog({
+        width: 220,
+        height: 240,
+        autoOpen: false
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#btnmsjgonder1").click(function () {
+            var metin = document.getElementById('gonderilenmesaj').value;
+            if (metin == "") {
+                alert('Lütfen boş mesaj yollamayın.');
+            } else {
+                var Mesaji = {
+                    Mesaj: metin
+
+                }
+
+                $.ajax({
+                    url: '@Url.Action("MesajYolla","Home")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: Mesaji,
+                    success: function (data) {
+                        alert(data);
+                    }
+                })
+                $("#dialog-user").dialog("close");
+            }
+
+        });
+
+
+
+    });
+
+
+</script>

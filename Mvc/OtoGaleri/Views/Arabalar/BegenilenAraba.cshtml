@@ -1,0 +1,106 @@
+﻿@using OtoGaleri_Entities.Tablolar
+@model IEnumerable<OtoGaleri_Entities.Tablolar.SifirBegenilenArabalar>
+
+    @{
+        ViewBag.Title = "GelenAraba";
+    }
+<title>Beğenilen Arabalar</title>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h2>Beğenilen Arabalar</h2>
+            <hr />
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Araba.Marka)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Araba.Model)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Araba.Yakit)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Araba.Cekis)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Araba.Garanti)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Araba.Aciklama)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.Araba.Fiyat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Araba.Durum)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Araba.Marka)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Araba.Model)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Araba.Yakit)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Araba.Cekis)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Araba.Garanti)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Araba.Aciklama)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Araba.Fiyat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Araba.Durum)
+                        </td>
+                        <td>
+
+                            <a href="/Arabalar/BegenilenArabaDetay/@item.Id" class="btn btn-info">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </a>
+                            @if (item.Araba.IslemYapabilme == false)
+                            {
+                                <a href="#" class="btn btn-danger">
+                                    İşlem Yapılamaz
+                                </a>
+                            }
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+  

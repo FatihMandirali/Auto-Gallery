@@ -1,0 +1,166 @@
+﻿@model OtoGaleri_Entities.Tablolar.KirayaVerilmisArabalar
+@{
+    ViewBag.Title = "KiralikArabaGunUzat";
+}
+<title>Kiralık Araba Gün Uzat</title>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Kiralık Araba Gün Uzat</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h4>Uzatılacak Araba</h4>
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HangiKullanici.Adi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HangiKullanici.Adi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HangiKullanici.Soyadi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HangiKullanici.Soyadi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HangiKullanici.Tc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HangiKullanici.Tc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.HangiKullanici.Eposta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HangiKullanici.Eposta)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Marka)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Marka)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Model)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Kasatipi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Kasatipi)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Renk)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Renk)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Vites)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Vites)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Yakit)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Yakit)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralikAraba.Arabaid.Fiyat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralikAraba.Arabaid.Fiyat)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.KiralamaTarih)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiralamaTarih)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.KiradanAlamaTarih)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KiradanAlamaTarih)
+            </dd>
+          
+
+           
+
+            </dl>
+@using (Html.BeginForm())
+{
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KiradanAlamaTarih, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KiradanAlamaTarih, new { htmlAttributes = new { @class = "datapicker form-control" } })
+                @Html.ValidationMessageFor(model => model.KiradanAlamaTarih, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus"></span>Günü Uzat
+                </button>
+                @Html.ActionLink("Listeye Dön", "PersonelKiralananArabalar", "Arabalar", null, new { @class = "btn btn-default" })
+            </div>
+
+        </div>
+
+
+
+}
+
+</div>
+    </div>
+
+
+@section scripts{
+
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+
+        $(function(){
+            $(".datapicker").datepicker({
+
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                //  yearRange: "2018:2020",
+                minDate: new Date(2018, 0, 1),
+                maxDate: new Date(2020, 0, 1),
+                showOn: "both"
+
+
+            });
+
+          });
+    </script>
+
+}

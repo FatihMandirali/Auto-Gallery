@@ -1,0 +1,71 @@
+﻿<footer class="py-3">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-4 text-center">
+                <h5>
+                    <strong>Site Haritası</strong>
+                </h5>
+                <hr />
+                <p>
+                    <a href="/Home/About"><span class="glyphicon glyphicon-info-sign"></span>Hakkımızda</a><br />
+                    @{
+                        if (Session["login"] == null)
+                        {
+                            <a href="/Home/Register"><span class="glyphicon glyphicon-plus"></span>Kayıt Ol</a><br />
+                        }
+                        else
+                        {
+                            <a href="/Kullanici/Create"><span class="glyphicon glyphicon-plus"></span>Yeni Kullanıcı Ekle</a><br />
+                        }
+                    }
+                    <a href="/Home/About"><span class="glyphicon glyphicon-phone-alt"></span>İletişim</a><br />
+                    <a href="/Home/Index"><span class="glyphicon glyphicon-th-list"></span>Son Eklenen Arabalar</a>
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h5>
+                    <strong>Fatih Mandıralı</strong>
+                </h5>
+                <hr />
+                <p>
+                    Tüm Hakları Saklıdır. &copy;<br />
+                    FM OtoGaleri @DateTime.Now.Year
+                </p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h5>
+                    <strong>E-Bülten Üyeliği</strong>
+                </h5>
+                <hr />
+                <div class="col-md-10 col-lg-offset-1">
+                    <div class="input-group">
+
+
+                        @if (Session["logink"] == null && Session["loginy"] == null)
+                        {
+                            <span class="input-group-btn">
+                                <a href="/Home/LoginKullanici" class="btn btn-primary" type="button" onclick=" return confirm('Lütfen mesajı göndermeden önce giriş yapın');  "><span class="glyphicon glyphicon-send"></span>Gönder</a>
+                            </span>
+                        }
+                        else if (Session["logink"] != null)
+                        {
+
+                            <span class="input-group-btn" id="btnmsjgonder">
+                                <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-send"></span>Gönder</button>
+                            </span>
+
+                        }
+                        else if (Session["loginy"] != null)
+                        {
+                            <span class="input-group-btn" id="btnmsjgonder2">
+                                <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-send"></span>Gönder</button>
+                            </span>
+                        }
+                    </div><!-- /input-group -->
+                </div>
+            </div><!-- /.col-lg-6 -->
+        </div>
+    </div>
+    <!-- /.container -->
+
+</footer>

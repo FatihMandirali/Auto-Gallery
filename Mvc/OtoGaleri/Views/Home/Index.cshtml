@@ -1,0 +1,448 @@
+﻿@using OtoGaleri_Entities.Tablolar
+@*@model List<Arabalar>*@
+@model OtoGaleri.Models.ViewModels
+@{
+    ViewBag.Title = "Index";
+}
+<title>Anasayfa</title>
+<!-- Page Content -->
+<script src="http://rawgithub.com/stidges/jquery-searchable/master/dist/jquery.searchable-1.0.0.min.js">
+   
+</script>
+<link href="~/Content/shop-homepage.css" rel="stylesheet" />
+<div class="container">
+    @{
+        Yoneticiler y = null;
+        Kullanicilar k = null;
+        Personeller p = null;
+        //  Ortak123 o = null;
+        if (Session["loginp"] != null)
+        {
+            p = Session["loginp"] as Personeller;
+            //  o = Session["loginp"] as Ortak123;
+        }
+        else if (Session["loginy"] != null)
+        {
+            y = Session["loginy"] as Yoneticiler;
+            //  o = Session["loginp"] as Ortak123;
+        }
+        else if (Session["logink"] != null)
+        {
+            k = Session["logink"] as Kullanicilar;
+            //  o = Session["loginp"] as Ortak123;
+        }
+
+    }
+    <div class="row">
+        <div class="col-md-3">
+            @Html.Partial("_PartialCategories")
+        </div>
+        <div class="col-md-9">
+            <div class="row carousel-holder">
+                <div class="col-md-12">
+                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img class="slide-image" src="~/Images/oto11.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="slide-image" src="~/Images/oto2.jpg" alt="">
+                            </div>
+                            <div class="item">
+                                <img class="slide-image" src="~/Images/oto3.png" alt="">
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="contact-list">
+               
+                @foreach (var araba in Model.araba)
+                        {
+
+                         if (araba.IslemYapabilme == true)
+                             {
+                          <div class="col-sm-4 col-lg-4 col-md-4">
+                            <div class="thumbnail">
+                                <img src="~/Images/@araba.Resim1">   @*http://placehold.it/320x150*@
+                                <div class="caption">
+                                    <h4 class="pull-right">@araba.Fiyat ₺ </h4>
+                                    <h4 id="adsoyad">
+                                        <a href="#">@araba.Marka @araba.Model</a>
+                                    </h4>
+
+                                    @if (string.IsNullOrEmpty(araba.Aciklama) == false && araba.Aciklama.Length > 40)
+                                    {
+                                        <p>@(araba.Aciklama.Substring(0, 30) + "....")</p>
+                                        @*<p class="pull-right">
+                                            <a href="#" class="btn btn-default btn-sm">
+                                                devamı
+                                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                            </a>
+                                        </p>*@
+                                        <p>
+                                            @if (y != null || p != null)
+                                            {
+
+                                                <a href="#" class="btn btn-success pull-right" id="view"
+                                                   data-toggle="modal" data-target="/Arabalar/BosDetails/@araba.Id">
+
+                                                    İncele
+                                                </a>
+                                                if (p != null && araba.Durum == OtoGaleri_Entities.ArabalarEnums.Durum2.Sifir)
+                                                {
+                                                    <a href="/Home/Index" onclick=" return confirm('Personeller sıfır arabalara işlem yapamamaktadır.');  " class="btn btn-danger pull-left">
+                                                        Kilitli
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/Arabalar/PersonelIslem/@araba.Id" class="btn btn-group pull-left">
+                                                        İşlem
+                                                    </a>
+                                                }
+                                            }
+                                            else if (k != null)
+                                            {
+                                                <a href="#" class="btn btn-success pull-right" id="view"
+                                                   data-toggle="modal" data-target="/Arabalar/BosDetails/@araba.Id">
+
+                                                    İncele
+                                                </a>
+
+                                                @*<a href="/Arabalar/Details/@araba.Id" class="btn btn-default pull-left">
+                                                    Beğen
+                                                </a>*@
+                                                <a href="#" name="@araba.Id" id="btnbegen" class="btn btn-default pull-left">
+                                                    Beğen
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="#" class="btn btn-success pull-right" id="view"
+                                                   data-toggle="modal" data-target="/Arabalar/BosDetails/@araba.Id">
+
+                                                    İncele
+                                                </a>
+
+                                                <a href="/Home/LoginKullanici" class="btn btn-default pull-left"
+                                                   onclick=" return confirm('Lütfen beğeni yapmadan önce giriş yapın');  ">
+                                                    Beğen
+                                                </a>//23 te 2.
+                                            }
+
+
+                                        </p>
+                                    }
+                                    else
+                                    {
+
+                                        <p>   @araba.Aciklama</p>
+
+                                        <p>
+                                            @if (y != null || p != null)
+                                            {
+                                                <a href="#" class="btn btn-success pull-right" id="view"
+                                                   data-toggle="modal" data-target="/Arabalar/BosDetails/@araba.Id">
+
+                                                    İncele
+                                                </a>
+                                                if (p != null && araba.Durum == OtoGaleri_Entities.ArabalarEnums.Durum2.Sifir)
+                                                {
+                                                    <a href="/Home/Index" onclick=" return confirm('Personeller sıfır arabalara işlem yapamamaktadır.');  " class="btn btn-danger pull-left">
+                                                        Kilitli
+                                                    </a>
+                                                }
+                                                else
+                                                {
+                                                    <a href="/Arabalar/PersonelIslem/@araba.Id" class="btn btn-group pull-left">
+                                                        İşlem
+                                                    </a>
+                                                }
+
+                                            }
+                                            else if (k != null)
+                                            {
+
+
+                                                @*<a href="/Arabalar/Details/@araba.Id" class="btn btn-success pull-right">
+                                                        İncele
+                                                    </a>*@
+                                                <a href="#" class="btn btn-success pull-right" id="view"
+                                                   data-toggle="modal" data-target="/Arabalar/BosDetails/@araba.Id">
+
+                                                    İncele
+                                                </a>
+                                                @*<a href="/Arabalar/BegenilenAraba/@araba.Id" class="btn btn-default pull-left">
+                                                    Beğen
+                                                </a>*@
+                                                <a href="#" name="@araba.Id" id="btnbegen" class="btn btn-default pull-left">
+                                                    Beğen
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="#" class="btn btn-success pull-right" id="view"
+                                                   data-toggle="modal" data-target="/Arabalar/BosDetails/@araba.Id">
+
+                                                    İncele
+                                                </a>
+
+                                                <a href="/Home/LoginKullanici" class="btn btn-default pull-left"
+                                                   onclick=" return confirm('Lütfen beğeni yapmadan önce giriş yapın');  ">
+                                                    Beğen
+                                                </a>
+                                            }
+
+
+                                        </p>
+                                    }
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.container -->
+<div class="container">
+    <hr>
+    <!-- Footer -->
+    @Html.Partial("_PartialFooter")
+</div>
+<!-- /.container -->
+
+
+<script>
+    $(document).on("click", "#btnbegen", function () {
+        if (confirm("Beğenmek istediğinizden emin misiniz?")) {
+            var ID = $(this).attr('name');
+            $.ajax({
+                url: '/Home/ArabaBegen/' + ID,//Ajax ile tetiklenecek ilgili adresi belirliyoruz.
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    //  $("#Durum").html(data); durum id li divin içine postta yazdığı yazıyı basıyor.
+                    alert(data);
+                    location.reload();
+                }
+            });
+        }
+    });
+
+</script>
+
+
+<div class="modal fade" id="bootstrapmodal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @*<div class="modal-header">
+                Araba Detay
+            </div>*@
+            <div class="modal-body">
+
+            </div>
+            @*<div class="modal-footer">
+
+                </div>*@
+        </div>
+
+    </div>
+</div>
+@*BoşDetails ekledim onu silersin yukardaki divi sil ve yöneticide incele butonunu temizle eklediklerimi sil*@
+<script>
+    $(function () {
+        // a tagimizde bulunan .view classımıza click olduğunda
+        $("body").on("click", "#view", function () {
+            //data-target dan url mizi al
+            var url = $(this).data("target");
+            //bu urlimizi post et
+            $.post(url, function (data) { })
+                //eğer işlemimiz başarılı bir şekilde gerçekleşirse
+            .done(function (data) {
+                //gelen datayı .modal-body mizin içerise html olarak ekle
+                $("#bootstrapmodal .modal-body").html(data);
+                //sonra da modalimizi göster
+                $("#bootstrapmodal").modal("show");
+            })
+
+
+        });
+    })
+
+</script>
+
+<script>
+
+
+    $('#contact-list').searchable({
+        searchField: '#aramaInput',
+        selector: '.thumbnail',
+        childSelector: '#adsoyad',
+        show: function (elem) {
+            elem.slideDown(100);
+        },
+        hide: function (elem) {
+            elem.slideUp(100);
+        }
+    })
+
+
+
+</script>
+
+
+
+<div id="dialog-user" title="Kullanıcı Dialog">
+    @*@using (Ajax.BeginForm("MesajYolla", "Home", FormMethod.Post, new AjaxOptions { OnSuccess = "Create" }, new { id = "frm-create" }))*@
+
+        <div class="input-group ">
+            Mesajınız:
+            <br />
+            <textarea class="form-control" id="gonderilenmesaj" rows="4"></textarea>           
+        </div>
+        <br />
+        <div>
+            <input type="submit" value="Gönder" id="btnmsjgonder1" class="btn btn-success" />
+        </div>
+   
+
+</div>
+
+<script>
+    $("#btnmsjgonder").click(function () {
+        $("#dialog-user").dialog("open");
+    });
+    $("#dialog-user").dialog({
+        width: 220,
+        height: 240,
+        autoOpen: false
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#btnmsjgonder1").click(function () {
+            var metin = document.getElementById('gonderilenmesaj').value;
+            if (metin == "") {
+                alert('Lütfen boş mesaj yollamayın.');
+            } else {
+                var Mesaji = {
+                    Mesaj: metin
+
+                }
+                $.ajax({
+                    url: '@Url.Action("MesajYolla","Home")',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: Mesaji,
+                    success: function (data) {
+                        alert(data);
+                    }
+                })
+                $("#dialog-user").dialog("close");
+
+            }
+        });
+
+
+
+    });
+
+
+</script>
+
+<div id="dialog-user2" title="Yönetici Dialog">
+  
+    <table class="table">
+        @foreach (var kk in Model.kullanici)
+        {
+   <tr><td>@kk.Adi @kk.Soyadi</td><td>
+      <a class="btn btn-sm btn-success" id="kullanicimsjgonder"
+          data-toggle="modal" data-target="/Home/YetkiliMsj/@kk.Id">
+        <span class="glyphicon glyphicon-comment"></span>
+      </a>
+      <a class="btn btn-sm btn-success" id="kullanicimailgonderii"
+         data-toggle="modal" data-target="/Home/YetkiliMail/@kk.Id">
+        <span class="glyphicon glyphicon-send"></span>
+      </a>
+   </td></tr>
+        }
+    </table>
+</div>
+
+<script>
+    $("#btnmsjgonder2").click(function () {
+        $("#dialog-user2").dialog("open");
+    });
+    $("#dialog-user2").dialog({
+        width: 220,
+        height: 240,
+        autoOpen: false
+    });
+</script>
+
+<script>
+    $(function () {
+        // a tagimizde bulunan .view classımıza click olduğunda
+        $("body").on("click", "#kullanicimsjgonder", function () {
+            //data-target dan url mizi al
+            var url = $(this).data("target");
+            //bu urlimizi post et
+            $.post(url, function (data) { })
+                //eğer işlemimiz başarılı bir şekilde gerçekleşirse
+            .done(function (data) {
+                //gelen datayı .modal-body mizin içerise html olarak ekle
+                $("#bootstrapmodal .modal-body").html(data);
+                //sonra da modalimizi göster
+                $("#bootstrapmodal").modal("show");
+            })
+
+
+        });
+    })
+
+</script>
+<script>
+    $(function () {
+        // a tagimizde bulunan .view classımıza click olduğunda
+        $("body").on("click", "#kullanicimailgonderii", function () {
+            //data-target dan url mizi al
+            var url = $(this).data("target");
+            //bu urlimizi post et
+            $.post(url, function (data) { })
+                //eğer işlemimiz başarılı bir şekilde gerçekleşirse
+            .done(function (data) {
+                //gelen datayı .modal-body mizin içerise html olarak ekle
+                $("#bootstrapmodal .modal-body").html(data);
+                //sonra da modalimizi göster
+                $("#bootstrapmodal").modal("show");
+            })
+
+
+        });
+    })
+
+</script>
+
+
+

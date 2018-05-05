@@ -1,0 +1,188 @@
+﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.CalisanUcretleri>
+@{
+    ViewBag.Title = "Masraflar";
+}
+<title>Masraflar</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Masraflar</h2>
+        <hr />
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-md-offset-1">
+
+        <p>
+            Personellere verilen aylık para = @TempData["PersonelAylik"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-3 col-md-offset-0">
+
+        <p>
+            Hizmetlilere verilen aylık Para = @TempData["HizmetliAylik"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-3 col-md-offset-0">
+
+
+        <p>
+            Çalışanlara Verilen Toplam Para = @TempData["ToplamPara"] ₺
+        </p>
+
+    </div>
+ 
+  
+    
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        
+        <div class="col-md-3 col-md-offset-1 ">
+
+            <p>
+                @if (DateTime.Now.Day == 22)
+                {
+                    using (Html.BeginForm())
+                    {
+                        <button type="submit" class="btn btn-primary" id="btnOdeme">
+                            <span class="glyphicon glyphicon-plus"></span> Ödeme Yap
+                        </button>
+                    }
+                }
+            </p>
+
+        </div>
+        <div class="col-md-3 ">
+
+            <p>
+             
+               <a href="/Ekonomi/FaturaGor" class="btn btn-success">
+                    <span class="glyphicon glyphicon-home"></span>Faturaları Gör
+                </a>
+            </p>
+
+        </div>
+        <div class="col-md-3 ">
+
+            <p>
+
+                <a href="/Ekonomi/DigerMasraflar" class="btn btn-default">
+                    <span class="glyphicon glyphicon-home"></span>Diğer Masrafları Gör
+                </a>
+            </p>
+
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+        <hr />
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Soyadi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EPosta)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ucret)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.UcretPeriyodu)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OdemeTarihi)
+                </th>
+                <th>
+
+                </th>
+
+
+              
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Soyadi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EPosta)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ucret)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UcretPeriyodu)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OdemeTarihi)
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-success">
+                            <span class="glyphicon glyphicon-ok"></span>
+                        </a>
+                    </td>
+                   
+                    </tr>
+            }
+
+
+
+</table>
+</div>
+</div>
+
+@*<script>
+    $(document).ready(function () {
+
+        $("#btnOdeme").click(function () {
+            $("#btnOdeme").hide(1000);
+
+        });
+        //var  tarih=new Date();
+        //if(tarih.getMonth!= ){
+
+        //}
+
+
+
+    });
+
+
+</script>*@

@@ -1,0 +1,99 @@
+﻿@model  OtoGaleri_Entities.Tablolar.Faturalar
+@{
+    ViewBag.Title = "FaturaEkle";
+  
+   
+}
+<title>Fatura Ekle</title>
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/validation-summary.css" rel="stylesheet" />
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Fatura Oluştur</h2>
+        <hr />
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal">
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Tutar, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Tutar, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Tutar, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.GecikmeTutar, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.GecikmeTutar, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.GecikmeTutar, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OdemeTarihi, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.OdemeTarihi, new { htmlAttributes = new { @class = "datapicker form-control" } })
+                        @Html.ValidationMessageFor(model => model.OdemeTarihi, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+              
+             
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FaturaTuru.FaturaAdi, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownListFor(model => model.FaturaTuru.FaturaAdi,(List<SelectListItem>)ViewBag.Fatura,new { htmlAttributes = new { @class = "form-control" } })                     
+                        @Html.ValidationMessageFor(model => model.FaturaTuru.FaturaAdi, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+
+                    <button type="submit" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>Oluştur
+                    </button>
+
+                    @Html.ActionLink("Faturalara Dön", "FaturaGor", "Ekonomi", null, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Faturalara Türlerini Gör", "FaturaGor", "Ekonomi", null, new { @class = "btn btn-primary" })
+
+                </div>
+            </div>
+
+
+
+
+        }
+    </div>
+</div>
+
+
+@section scripts{
+
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+
+        $(function () {
+            $(".datapicker").datepicker({
+
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                //  yearRange: "2018:2020",
+                minDate: new Date(2018, 0, 1),
+                maxDate: new Date(2020, 0, 1),
+                showOn: "both"
+
+
+            });
+
+        });
+    </script>
+
+}

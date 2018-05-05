@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "GenelDurum";
+}
+<title>Genel Durum</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Genel Durum</h2>
+        <hr />
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-3 col-md-offset-1">
+
+        <p>
+            Toplam Kazanç =  @TempData["ToplamKazanc"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-3 col-md-offset-0">
+
+        <p>
+            Toplam Masraf=  @TempData["ToplamMasraf"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-3 col-md-offset-0">
+
+        <p>
+            Bakiye=  @TempData["Bakiye"] ₺
+        </p>
+
+    </div>
+
+</div>
+<hr />
+<div class="row">
+
+    <div class="col-md-3 col-md-offset-1">
+
+        <img src="@Url.Action("GenelDurumGraph")" alt="Genel Durum Grafiği" />
+
+
+    </div>
+
+</div>
+
+

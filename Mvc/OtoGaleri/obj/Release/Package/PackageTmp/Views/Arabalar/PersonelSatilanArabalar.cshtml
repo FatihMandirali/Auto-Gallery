@@ -1,0 +1,114 @@
+﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.IkinciElSatilmisArabalar>
+@{
+    ViewBag.Title = "PersonelSatilanArabalar";
+}
+<title>Satılan Arabalar</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Satılmış İkinci El Arabalar</h2>
+        <hr />
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-3 col-md-offset-1">
+
+        <p>
+            Toplam Alınan Ücret =  @TempData["ikincielkazanilan"] ₺
+        </p>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SatilanKullanici.Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SatilanKullanici.Soyadi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SatilanKullanici.Tc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SatilanKullanici.Telefon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IkinciElArabalar.Arabaid.Marka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IkinciElArabalar.Arabaid.Model)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.IkinciElArabalar.Arabaid.Kasatipi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IkinciElArabalar.Arabaid.Renk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IkinciElArabalar.Arabaid.Fiyat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SatanPersonel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SatilanUcret)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SatilanKullanici.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SatilanKullanici.Soyadi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SatilanKullanici.Tc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SatilanKullanici.Telefon)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IkinciElArabalar.Arabaid.Marka)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IkinciElArabalar.Arabaid.Model)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.IkinciElArabalar.Arabaid.Kasatipi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IkinciElArabalar.Arabaid.Renk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IkinciElArabalar.Arabaid.Fiyat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SatanPersonel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SatilanUcret)
+                </td>
+                <td>
+
+                    <a href="/Arabalar/PersonelIkinciElSatilanArabaDetay/@item.Id" class="btn btn-success">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </a>
+                </td>
+                </tr>
+                }
+        </table>
+
+
+    </div>
+    </div>
+

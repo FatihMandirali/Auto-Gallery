@@ -1,0 +1,103 @@
+﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.Faturalar>
+@{
+    ViewBag.Title = "FaturaGor";
+}
+<title>Fatura Gör</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Faturalar</h2>
+        <hr />
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-3 col-md-offset-1">
+
+        <p>
+            Aylık ödenen fatura =  @TempData["aylikfatura"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-3 col-md-offset-0">
+
+        <p>
+            Toplam ödenen fatura =  @TempData["digertumfatura"] ₺
+        </p>
+
+    </div>
+
+
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+        <p>
+            <a href="/Ekonomi/FaturaEkle" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus"></span>Fatura Ekle
+            </a>
+            <a href="/Ekonomi/FaturaTuru" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>Fatura Türü Ekle
+            </a>
+
+            <a href="/Ekonomi/FaturaTuruGor" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span>Fatura Türlerini Gör
+            </a>
+
+        </p>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tutar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GecikmeTutar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OdemeTarihi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FaturaTuru.FaturaAdi)
+                </th>
+                <th></th>
+           </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tutar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GecikmeTutar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OdemeTarihi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaturaTuru.FaturaAdi)
+                    </td>
+                    <td>
+                        @if (item.Odendimi == false)
+                        {
+                        <a href="/Ekonomi/FaturaOde/@item.Id" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-plus"></span>Öde
+                        </a>
+                        }
+                    </td>
+            </tr>
+            }
+            
+
+
+
+
+</table>
+
+
+
+
+
+    </div>
+    </div>
+

@@ -1,0 +1,57 @@
+﻿@model OtoGaleri_Entities.Tablolar.IkinciElSatilmisArabalar
+@{
+    ViewBag.Title = "PesonelIslemKullanicisiIkinciEl";
+}
+<title>Araba İşlem</title>
+<link href="~/Content/validation-summary.css" rel="stylesheet" />
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Satılacak Araba</h2>
+        <hr />
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Arabalar</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.SatilanKullanici, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SatilanKullanici.Tc, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SatilanKullanici, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SatilanUcret, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SatilanUcret, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SatilanUcret, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus"></span>Oluştur
+                </button>
+                @Html.ActionLink("Listeye Dön", "Index", "Home", null, new { @class = "btn btn-default" })
+            </div>
+
+        </div>
+
+
+        
+   </div>
+}
+
+    </div>
+    </div>
+

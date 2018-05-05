@@ -1,0 +1,64 @@
+﻿@model OtoGaleri_Entities.Tablolar.DigerMasraflar
+@{
+    ViewBag.Title = "DigerMasraflarDetay";
+}
+<title>Diğer Masraflar Detay</title>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Diğer Ödeme Detayları</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h4>Fatura</h4>
+        <hr />
+        @using (Html.BeginForm())
+            {
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Tutar)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Tutar)
+                </dd>
+
+            
+                <dt>
+                    @Html.DisplayNameFor(model => model.OdemeTarihi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.OdemeTarihi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MasrafTuru.MasrafAdi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MasrafTuru.MasrafAdi)
+                </dd>
+            </dl>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+
+                    <button type="submit" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus"></span>Ödemeyi Yap
+                    </button>
+
+                    @Html.ActionLink("Diğer Masraflara Dön", "DigerMasraflar", "Ekonomi", null, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Diğer Masraf Türlerini Gör", "DigerMasrafTuru", "Ekonomi", null, new { @class = "btn btn-primary" })
+
+                </div>
+            </div>
+
+
+
+
+        }
+    </div>
+</div>
+
+

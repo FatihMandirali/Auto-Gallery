@@ -1,0 +1,80 @@
+﻿@model OtoGaleri_Entities.Tablolar.Arabalar
+@{
+    ViewBag.Title = "PersonelIslem";
+}
+<title>İşlem</title>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Detaylar</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h4>Arabanın</h4>
+        <hr />
+
+        <img src="~/Images/@Model.Resim1" class="img-circle" width="128" height="128" />
+        @Html.HiddenFor(model => model.Resim1)
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Marka)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Marka)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Kasatipi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Kasatipi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Renk)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Renk)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fiyat)
+            </dd>
+
+        </dl>
+       @if (Model.Durum == OtoGaleri_Entities.ArabalarEnums.Durum2.Sifir)
+       {
+            <a href="/Arabalar/PesonelIslemKullanicisi" onclick="return confirm('Bu arabayı satmak istediğinize emin misiniz ?')" class="btn btn-success pull-right">
+                İleri
+            </a>
+       }
+       else if (Model.Durum == OtoGaleri_Entities.ArabalarEnums.Durum2.Kiralik)
+       {
+        <a href="/Arabalar/PesonelIslemKullanicisikiralik" onclick="return confirm('Bu arabayı kiralamak istediğinize emin misiniz ?')" class="btn btn-success pull-right">
+            İleri
+        </a>
+       }
+       else if (Model.Durum == OtoGaleri_Entities.ArabalarEnums.Durum2.IkinciEl)
+       {
+        <a href="/Arabalar/PesonelIslemKullanicisiIkinciEl" onclick="return confirm('Bu arabayı kiralamak istediğinize emin misiniz ?')" class="btn btn-success pull-right">
+            İleri
+        </a>
+       }
+        </div>
+    </div>
+

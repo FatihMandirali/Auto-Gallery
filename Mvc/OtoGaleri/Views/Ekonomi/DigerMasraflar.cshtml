@@ -1,0 +1,96 @@
+﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.DigerMasraflar>
+@{
+    ViewBag.Title = "DigerMasraflar";
+}
+<title>Diğer Masraflar</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Diğer Masraflar</h2>
+        <hr />
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-3 col-md-offset-1">
+
+        <p>
+            Aylık harcanan diğer masraflar =  @TempData["aylikmasraf"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-3 col-md-offset-0">
+
+        <p>
+            Harcanan tüm diğer masraflar =  @TempData["digertummasraf"] ₺
+        </p>
+
+    </div>
+   
+
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <p>
+            <a href="/Ekonomi/DigerMasraflarEkle" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus"></span>Diğer Masraf Ekle
+            </a>
+            <a href="/Ekonomi/FaturaGor" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus"></span>Faturaları Gör
+            </a>
+            <a href="/Ekonomi/DigerMasrafTuruEkle" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>Diğer Masraf Türü Ekle
+            </a>
+
+            <a href="/Ekonomi/DigerMasrafTuru" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span>Diğer Masraf Türlerini Gör
+            </a>
+
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tutar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OdemeTarihi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MasrafTuru.MasrafAdi)
+                </th>
+                
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tutar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OdemeTarihi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MasrafTuru.MasrafAdi)
+                    </td>
+                 
+                    <td>
+                        @if (item.Odendimi == false)
+                        {
+                            <a href="/Ekonomi/DigerMasraflarDetay/@item.Id" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-plus"></span>Öde
+                            </a>
+                        }
+                    </td>
+                </tr>
+            }
+
+
+
+
+
+        </table>
+
+
+        </div>
+    </div>

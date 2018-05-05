@@ -1,0 +1,70 @@
+﻿@model OtoGaleri_Entities.Tablolar.Faturalar
+    @{
+        ViewBag.Title = "FaturaOde";
+    }
+<title>Fatura Öde</title>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2>Fatura Ödeme Detayları</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h4>Fatura</h4>
+            <hr />
+        @using (Html.BeginForm())
+            {
+            <dl class="dl-horizontal">
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Tutar)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Tutar)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GecikmeTutar)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GecikmeTutar)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.OdemeTarihi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.OdemeTarihi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FaturaTuru.FaturaAdi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FaturaTuru.FaturaAdi)
+                </dd>
+           </dl>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+                <button type="submit" class="btn btn-success">
+                    <span class="glyphicon glyphicon-plus"></span>Ödemeyi Yap
+                </button>
+
+                @Html.ActionLink("Faturalara Dön", "FaturaGor", "Ekonomi", null, new { @class = "btn btn-default" })
+                @Html.ActionLink("Faturalara Türlerini Gör", "FaturaGor", "Ekonomi", null, new { @class = "btn btn-primary" })
+
+            </div>
+        </div>
+
+
+
+
+        }
+</div>
+    </div>
+

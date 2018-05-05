@@ -1,0 +1,95 @@
+﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.Hizmetliler>
+
+@{
+    ViewBag.Title = "Index";
+}
+<title>Hizmetliler</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Hizmetliler</h2>
+        <hr />
+    </div>
+
+</div>@*sıradaki görev kayıt eklerken gereksizleri eklemeyi engellemek ardından resim eklemek*@
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <p>
+            <a href="/Hizmetliler/Create" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>Oluştur
+            </a>
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Soyadi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Görevi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Tc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Telefon)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Acres)
+                </th>
+               
+                <th>
+                    @Html.DisplayNameFor(model => model.Ucret)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UcretPeriyodu)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Soyadi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Görevi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefon)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Acres)
+                    </td>
+                  
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ucret)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UcretPeriyodu)
+                    </td>
+                    <td>
+                        <a href="/Hizmetliler/Edit/@item.Id" class="btn btn-warning">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a href="/Hizmetliler/Details/@item.Id" class="btn btn-info">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>
+                        <a href="/Hizmetliler/Delete/@item.Id" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div>
+</div>

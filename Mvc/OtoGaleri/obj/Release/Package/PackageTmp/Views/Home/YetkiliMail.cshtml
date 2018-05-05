@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<div class="input-group" style="margin:auto ">
+    Başlık:<br />
+    <input type="text" class="form-control" id="yetkilibaslik"/>
+    Mesajınız:
+    <br />
+    <textarea class="form-control" id="yetkilimesaj" rows="4"></textarea>
+
+    <br />
+    <br />
+
+    <input type="submit" value="Gönder" id="btnyetkilimsj" class="btn btn-success" />
+
+</div>
+
+@*--------*@
+<script>
+    $(document).ready(function () {
+        $("#btnyetkilimsj").click(function () {
+            var metin = document.getElementById('yetkilimesaj').value;
+            var basikk = document.getElementById('yetkilibaslik').value;
+            var Mesaji = {
+                baslik:basikk,
+                icerik:metin
+
+            }
+            $.ajax({
+                url:'@Url.Action("YetkiliMaili", "Home")',
+                type:'POST',
+                dataType:'json',
+                data:Mesaji,
+                success:function(data){
+                    alert(data);
+                }
+            })
+            $("#dialog-user2").dialog("close");
+            $("#bootstrapmodal").modal("hide");
+
+        });
+
+
+
+    });
+
+
+</script>
+

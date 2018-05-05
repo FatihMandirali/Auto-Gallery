@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "TumMasraflar";
+}
+<title>Tüm Masraflar</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Tüm Masraflar</h2>
+        <hr />
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="col-md-3 col-md-offset-1">
+
+        <p>
+            Toplam ödenen fatura =  @TempData["toplamfaturalar"] ₺
+        </p>
+
+    </div>
+
+    <div class="col-md-3 col-md-offset-1">
+        
+        <img src="@Url.Action("FaturalarGraph")" alt="Fatura Detay Grafiği" />
+
+
+    </div>
+
+   
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-3 col-md-offset-1">
+
+        <p>
+            Harcanan tüm diğer masraflar =  @TempData["toplamdigermasraf"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+        
+        <img src="@Url.Action("DigerMasraflarGraph")" alt="Diğer Masraflar Detay Grafiği" />
+
+
+    </div>
+   
+  </div>
+<hr />
+<div class="row">
+    <div class="col-md-3 col-md-offset-1">
+
+
+        <p>
+            Çalışanlara Verilen Toplam Para = @TempData["toplamcalisan"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-2 col-md-offset-1">
+        
+        <img src="@Url.Action("CalisanOdemeleriGraph")" alt="Çalışan Ücretleri Detay Grafiği" />
+
+
+    </div>
+    
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-3 col-md-offset-1">
+
+
+        <p>
+            Tüm Masrafların Toplamı = @TempData["toplammasraf"] ₺
+        </p>
+
+    </div>
+  
+    
+</div>
+@*<div class="row">
+
+    <div class="col-md-2 col-md-offset-1">
+     <hr/>
+        <img src="@Url.Action("FaturalarGraph")" alt="Fatura Detay Grafiği"/>
+
+
+    </div>
+    <div class="col-md-2 col-md-offset-1">
+        <hr />
+        <img src="@Url.Action("DigerMasraflarGraph")" alt="Diğer Masraflar Detay Grafiği" />
+
+
+    </div>
+    <div class="col-md-2 col-md-offset-1">
+        <hr />
+        <img src="@Url.Action("CalisanOdemeleriGraph")" alt="Çalışan Ücretleri Detay Grafiği" />
+
+
+    </div>
+</div>*@

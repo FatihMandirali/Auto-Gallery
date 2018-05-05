@@ -1,0 +1,204 @@
+﻿@model OtoGaleri_Entities.Tablolar.Arabalar
+
+@{
+    ViewBag.Title = "Delete";
+}
+<title>Araba Sil</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Silinecek</h2>
+        <hr />
+        <h3>Silmek İstediğine Emin Misin ?</h3>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h4>Arabalar</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.IlanTarihi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IlanTarihi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Marka)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Marka)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Yil)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Yil)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Yakit)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Yakit)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Vites)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Vites)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Garanti)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Garanti)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Kasatipi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Kasatipi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MotorGucu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MotorGucu)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MotorHacmi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MotorHacmi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cekis)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cekis)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Renk)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Renk)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ArabayiEkleyen)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ArabayiEkleyen)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Fiyat)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EklenmeTarihi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EklenmeTarihi)
+            </dd>
+
+            @*<dt>
+                @Html.DisplayNameFor(model => model.Resim1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Resim1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Resim2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Resim2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Resim3)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Resim3)
+            </dd>*@
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Durum)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Durum)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tipi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tipi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aciklama)
+            </dt>
+
+            <dd>
+                @Html.TextAreaFor(model => model.Aciklama, new { @class = "form-control", @rows = 3, disabled = "disabled" })
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <button type="submit" class="btn btn-danger">
+                    <span class="glyphicon glyphicon-remove"></span>Sil
+                </button>
+                @Html.ActionLink("Listeye Dön", "Index", "Arabalar", null, new { @class = "btn btn-default" })
+            </div>
+        }
+    </div>
+    </div>

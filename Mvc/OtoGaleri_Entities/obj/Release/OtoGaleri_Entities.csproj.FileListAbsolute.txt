@@ -1,0 +1,10 @@
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Entities\bin\Release\OtoGaleri_Entities.dll.config
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Entities\bin\Release\OtoGaleri_Entities.dll
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Entities\bin\Release\OtoGaleri_Entities.pdb
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Entities\bin\Release\EntityFramework.dll
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Entities\bin\Release\EntityFramework.SqlServer.dll
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Entities\bin\Release\EntityFramework.xml
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Entities\bin\Release\EntityFramework.SqlServer.xml
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Entities\obj\Release\OtoGaleri_Entities.dll
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Entities\obj\Release\OtoGaleri_Entities.pdb
+F:\Dersler\c# uygulama\Projem\Mvc\OtoGaleri_Entities\obj\Release\OtoGaleri_Entities.csprojResolveAssemblyReference.cache

@@ -1,0 +1,115 @@
+﻿@model OtoGaleri_Entities.Tablolar.SifirSatilanAraba
+@{
+    ViewBag.Title = "PersonelSifirSatilanArabaDetay";
+}
+<title>Satılan Arabalar Detay</title>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Sıfır Satılmış Araba Detay</h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h4>Arabalar</h4>
+        <hr />
+        <img src="~/Images/@Model.SifirArabalar.Arabaid.Resim1" class="img-circle" width="128" height="128" />
+        @Html.HiddenFor(model => model.SifirArabalar.Arabaid.Resim1)
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SatilanKullanici.Adi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SatilanKullanici.Adi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SatilanKullanici.Soyadi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SatilanKullanici.Soyadi)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SatilanKullanici.Tc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SatilanKullanici.Tc)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SatilanKullanici.Eposta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SatilanKullanici.Eposta)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SifirArabalar.Arabaid.Marka)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SifirArabalar.Arabaid.Marka)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SifirArabalar.Arabaid.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SifirArabalar.Arabaid.Model)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SifirArabalar.Arabaid.Kasatipi)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SifirArabalar.Arabaid.Kasatipi)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SifirArabalar.Arabaid.Renk)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SifirArabalar.Arabaid.Renk)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SifirArabalar.Arabaid.Vites)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SifirArabalar.Arabaid.Vites)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SifirArabalar.Arabaid.Yakit)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SifirArabalar.Arabaid.Yakit)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SifirArabalar.Arabaid.Fiyat)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SifirArabalar.Arabaid.Fiyat)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SatilmaUcret)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SatilmaUcret)
+            </dd>
+
+
+        </dl>
+        <a href="/Arabalar/PersonelSifirSatilanArabalar" class="btn btn-success">
+            <span class="glyphicon glyphicon-ok"></span>Listeye Dön
+        </a>
+
+    </div>
+</div>
+
+

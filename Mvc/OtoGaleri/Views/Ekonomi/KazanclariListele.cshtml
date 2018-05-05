@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "KazanclariListele";
+}
+<title>Kazançlar</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Tüm Kazançlar</h2>
+        <hr />
+    </div>
+
+</div>
+<div class="row">
+
+    <div class="col-md-3 col-md-offset-1">
+
+        <p>
+            Sıfır arabadan elde edilen gelir =  @TempData["sifirarabakazanc"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+        
+        
+        <img src="@Url.Action("SifirArabaGraph")" alt="Sıfır Araba Detay Grafiği" />
+
+
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-3 col-md-offset-1">
+
+        <p>
+            İkinci el arabadan elde edilen gelir =  @TempData["ikincielarabakazanc"] ₺
+        </p>
+
+    </div>
+
+    <div class="col-md-5 col-md-offset-1">
+        
+       
+        <img src="@Url.Action("IkinciElArabaGraph")" alt="İkici El Detay Grafiği" />
+
+
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-3 col-md-offset-1">
+
+
+        <p>
+            Kiralik arabadan elde edilen gelir = @TempData["kiralikarabakazanc"] ₺
+        </p>
+
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+        
+      
+        <img src="@Url.Action("KiralikArabaGraph")" alt="Kiralik Araba Detay Grafiği" />
+
+
+    </div>
+ </div>
+<hr />
+
+<div class="row">
+
+    <div class="col-md-3 col-md-offset-1">
+
+        <p>
+            Toplam arabalardan elde edilen gelir =  @TempData["toplamarabakazanc"] ₺
+        </p>
+        
+    </div>
+
+</div>
+

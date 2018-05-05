@@ -1,0 +1,50 @@
+﻿@using OtoGaleri_Entities.XmlTablo
+@model List<KasaSifresi>
+@{
+    ViewBag.Title = "GosterXML";
+}
+<title>Kasa Şifreleri</title>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+        <h2>Kasa Şifreleri</h2>
+        <hr />
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1">
+
+        <table class="table table-responsive table-bordered">
+            <thead style="background-color:Highlight">
+                <tr>
+                    <th>Id</th>
+                    <th>Sifre</th>
+
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.ID
+                        </td>
+                        <td>
+                            @item.Sifre
+                        </td>
+
+                    </tr>
+                }
+
+
+            </tbody>
+
+
+
+
+
+        </table>
+
+        </div>
+</div>
