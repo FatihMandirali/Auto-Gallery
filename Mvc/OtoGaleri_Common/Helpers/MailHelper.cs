@@ -33,7 +33,7 @@ namespace OtoGaleri_Common.Helpers
                     ConfigHelper.Get<string>("MailHost"),
                     ConfigHelper.Get<int>("MailPort")))
                 {
-                    smtp.EnableSsl = true;
+                    smtp.EnableSsl = false;
                     smtp.Credentials = new NetworkCredential(
                         ConfigHelper.Get<string>("MailUser"),
                         ConfigHelper.Get<string>("MailPass"));

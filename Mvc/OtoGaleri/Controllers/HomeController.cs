@@ -16,7 +16,7 @@ namespace OtoGaleri.Controllers
 {
     public class HomeController : Controller
     {
-     
+     //Fatih Mandıralı
         KullaniciManager k = new KullaniciManager();
         PersonelManager p = new PersonelManager();
         YoneticiManager y = new YoneticiManager();
@@ -515,7 +515,7 @@ namespace OtoGaleri.Controllers
             OkViewModel oknotifyObj = new OkViewModel()
             {
                 Title = "Hesap Aktifleştirildi",
-                RedirectingUrl = "/Home/Login"
+                RedirectingUrl = "/Home/LoginKullanici"
             };
             oknotifyObj.Items.Add("Hesabınınz aktifleştirildi");
 

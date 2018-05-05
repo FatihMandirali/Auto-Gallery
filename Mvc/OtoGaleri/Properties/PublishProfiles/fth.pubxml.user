@@ -23,19 +23,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2018 21:25:51</publishTime>
     </File>
     <File Include="bin/OtoGaleri.dll">
-      <publishTime>04/28/2018 16:41:33</publishTime>
+      <publishTime>05/05/2018 18:20:09</publishTime>
     </File>
     <File Include="bin/OtoGaleri_BusinessLayer.dll">
-      <publishTime>04/27/2018 21:43:13</publishTime>
+      <publishTime>05/05/2018 18:20:07</publishTime>
     </File>
     <File Include="bin/OtoGaleri_Common.dll">
-      <publishTime>04/27/2018 21:43:13</publishTime>
+      <publishTime>05/05/2018 18:20:06</publishTime>
     </File>
     <File Include="bin/OtoGaleri_Core.dll">
       <publishTime>04/27/2018 21:43:13</publishTime>
     </File>
     <File Include="bin/OtoGaleri_DataAccessLayer.dll">
-      <publishTime>04/27/2018 21:43:13</publishTime>
+      <publishTime>05/05/2018 18:20:07</publishTime>
     </File>
     <File Include="bin/OtoGaleri_Entities.dll">
       <publishTime>04/27/2018 21:43:13</publishTime>
@@ -596,7 +596,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/10/2018 18:55:07</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/28/2018 16:48:26</publishTime>
+      <publishTime>05/05/2018 18:20:36</publishTime>
     </File>
     <File Include="XmlFile/KasaSifre.xml">
       <publishTime>03/07/2018 10:13:56</publishTime>
