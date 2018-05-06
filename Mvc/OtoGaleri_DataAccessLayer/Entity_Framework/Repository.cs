@@ -47,7 +47,7 @@ namespace OtoGaleri_DataAccessLayer.Entity_Framework
                 o.KayitTarih = now;
                // o.KimKayitEtti = App.Common.GetCurrentUserName();//işlem yapa kullanıcı adı yazılmalı...
                 o.IsActive = false;//bunu ekledim hata çıkarsa burası olabilir sebebi...
-                o.AktiflikGuid = new Guid();
+                o.AktiflikGuid = Guid.NewGuid();
                 o.KimKayitEtti = "system";
             }
             if(obj is Arabalar)

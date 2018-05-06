@@ -55,7 +55,7 @@ namespace OtoGaleri_BusinessLayer
                     layerResult.Result = Find(x => x.KullaniciAdi == data.UserName && x.Sifre == data.Password);
                     string siteUri = ConfigHelper.Get<string>("SiteRootUri");
                     string activateUri = $"{siteUri}/Home/UserActivate/{layerResult.Result.AktiflikGuid}";
-                    string body = $"merhaba{layerResult.Result.Eposta};Hesabınızı aktifleştirmek için <a href = '{activateUri}' target = '_blank' > tıklayınız.</ a > ";
+                    string body = $"merhaba {layerResult.Result.Eposta};Hesabınızı aktifleştirmek için <a href = '{activateUri}' target = '_blank' > tıklayınız.</ a > ";
                     MailHelper.SendMail(body, layerResult.Result.Eposta, "FM OtoGaleri Hesap Aktifleştirme", true);
                 }
             }

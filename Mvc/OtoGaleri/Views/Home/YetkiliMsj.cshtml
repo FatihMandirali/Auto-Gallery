@@ -20,9 +20,13 @@
     $(document).ready(function () {
         $("#btnyetkilimsj").click(function () {
             var metin = document.getElementById('yetkilimesaj').value;
-            var Mesaji = {
-                Yanit: metin
+            if (metin == "") {
+                alert('Lütfen boş mesaj yollamayın.');
+            } else {
+                var Mesaji = {
+                    Yanit: metin
 
+                }
             }
             $.ajax({
                 url:'@Url.Action("YetkiliMesaj","Home")',

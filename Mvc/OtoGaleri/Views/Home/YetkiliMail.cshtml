@@ -23,10 +23,14 @@
         $("#btnyetkilimsj").click(function () {
             var metin = document.getElementById('yetkilimesaj').value;
             var basikk = document.getElementById('yetkilibaslik').value;
-            var Mesaji = {
-                baslik:basikk,
-                icerik:metin
+            if (metin == "" || basikk == "") {
+                alert('Lütfen boş yer bırakmayın.');
+            } else {
+                var Mesaji = {
+                    baslik: basikk,
+                    icerik: metin
 
+                }
             }
             $.ajax({
                 url:'@Url.Action("YetkiliMaili", "Home")',

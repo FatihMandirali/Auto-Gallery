@@ -23,10 +23,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2018 21:25:51</publishTime>
     </File>
     <File Include="bin/OtoGaleri.dll">
-      <publishTime>05/05/2018 18:20:09</publishTime>
+      <publishTime>05/06/2018 00:20:39</publishTime>
     </File>
     <File Include="bin/OtoGaleri_BusinessLayer.dll">
-      <publishTime>05/05/2018 18:20:07</publishTime>
+      <publishTime>05/06/2018 00:20:36</publishTime>
     </File>
     <File Include="bin/OtoGaleri_Common.dll">
       <publishTime>05/05/2018 18:20:06</publishTime>
@@ -35,7 +35,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2018 21:43:13</publishTime>
     </File>
     <File Include="bin/OtoGaleri_DataAccessLayer.dll">
-      <publishTime>05/05/2018 18:20:07</publishTime>
+      <publishTime>05/06/2018 00:20:35</publishTime>
     </File>
     <File Include="bin/OtoGaleri_Entities.dll">
       <publishTime>04/27/2018 21:43:13</publishTime>
@@ -277,6 +277,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Global.asax">
       <publishTime>01/09/2018 21:25:50</publishTime>
     </File>
+    <File Include="Images/logo.ico">
+      <publishTime>05/06/2018 00:17:39</publishTime>
+    </File>
     <File Include="Images/oto11.jpg">
       <publishTime>04/24/2018 13:11:29</publishTime>
     </File>
@@ -287,7 +290,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/24/2018 13:14:07</publishTime>
     </File>
     <File Include="Images/resim.jpg">
-      <publishTime>01/09/2018 22:26:03</publishTime>
+      <publishTime>05/05/2018 21:51:28</publishTime>
     </File>
     <File Include="index.html">
       <publishTime>01/10/2018 18:53:06</publishTime>
@@ -515,10 +518,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/24/2018 12:09:09</publishTime>
     </File>
     <File Include="Views/Home/YetkiliMail.cshtml">
-      <publishTime>04/25/2018 11:16:30</publishTime>
+      <publishTime>05/05/2018 20:40:51</publishTime>
     </File>
     <File Include="Views/Home/YetkiliMsj.cshtml">
-      <publishTime>04/15/2018 11:53:28</publishTime>
+      <publishTime>05/05/2018 20:40:54</publishTime>
     </File>
     <File Include="Views/Kullanici/Create.cshtml">
       <publishTime>04/24/2018 11:43:21</publishTime>
@@ -563,7 +566,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/21/2018 00:04:15</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>04/24/2018 13:06:07</publishTime>
+      <publishTime>05/06/2018 00:17:46</publishTime>
     </File>
     <File Include="Views/Shared/_PartialCategories.cshtml">
       <publishTime>04/24/2018 11:13:40</publishTime>

@@ -152,6 +152,7 @@
     <Content Include="Content\validation-summary.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\logo.ico" />
     <Content Include="Images\oto11.jpg" />
     <Content Include="Images\oto2.jpg" />
     <Content Include="Images\oto3.png" />

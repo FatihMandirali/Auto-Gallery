@@ -554,7 +554,7 @@ namespace OtoGaleri.Controllers
         public ActionResult MesajKutusuY()
         {
             Models.YoneticiMesajViewModel model = new Models.YoneticiMesajViewModel();
-            model.mesaj = m_manager.List().OrderByDescending(x => x.GondermeTarihi).ToList();
+            model.mesaj = m_manager.List(x=>x.Ysil != false).OrderByDescending(x => x.GondermeTarihi).ToList();
             model.kullanici = k.List().OrderByDescending(x => x.KayitTarih).ToList();
             return View(model);
         }
@@ -592,7 +592,7 @@ namespace OtoGaleri.Controllers
         public JsonResult MesajSil(int id)
         {
             Mesajlasma m = m_manager.Find(x => x.Id == id);
-            m.Ysil = true;
+            m.Ysil = false;
             m.Okundumu = true;
             m_manager.Update(m);
             return Json("Mesajınınz başarıyla silindi.", JsonRequestBehavior.AllowGet);
@@ -632,6 +632,10 @@ namespace OtoGaleri.Controllers
         [HttpPost]
         public JsonResult YetkiliMesaj(Mesajlasma mesaj)
         {
+            if (mesaj.Yanit == null) {
+                return Json("Mesaj Gönderilemedi lütfen boş yer bırakmyın.", JsonRequestBehavior.AllowGet);
+            } else
+            {
             Ortak123 o = Session["loginy"] as Ortak123;
             int kullaniciid1 =Convert.ToInt32(TempData["gönderilenkullanici"]);
             Kullanicilar kk = k.Find(x => x.Id == kullaniciid1);
@@ -645,6 +649,8 @@ namespace OtoGaleri.Controllers
             m.Kokudumu = false;
             m_manager.Insert(m);
             return Json("Mesajınınz başarıyla gönderildi.", JsonRequestBehavior.AllowGet);
+            }
+            
         }
 
         public ActionResult KullaniciCevap(int? id)
@@ -706,7 +712,7 @@ namespace OtoGaleri.Controllers
         [HttpPost]
         public JsonResult YetkiliMaili(string baslik,string icerik)
         {
-            if (baslik == "" || icerik == "")
+            if (baslik == null || icerik == null)
             {
                return Json("Mail Gönderilemedi lütfen boş yer bırakmyın.", JsonRequestBehavior.AllowGet);
             }
