@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.Kullanicilar>
-
+@using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "Index";
 }
@@ -14,7 +14,10 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <p>
-            <a href="/Kullanici/Create" class="btn btn-primary">
+            @*<a href="/Kullanici/Create" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>Oluştur
+            </a>*@
+            <a href="@Html.EncodedLink("", "Create", "Kullanici", new { }, new { @class = "form-control"})" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span>Oluştur
             </a>
         </p>
@@ -90,7 +93,7 @@
 
                     <td>
 
-                        <a href="/Kullanici/Edit/@item.Id" class="btn btn-warning">
+                        @*<a href="/Kullanici/Edit/@item.Id" class="btn btn-warning">
                             <span class="glyphicon glyphicon-edit"></span>
                         </a>
                         <a href="/Kullanici/Details/@item.Id" class="btn btn-info">
@@ -98,6 +101,15 @@
                         </a>
                         <a href="/Kullanici/Delete/@item.Id" class="btn btn-danger">
                             <span class="glyphicon glyphicon-trash"></span>
+                        </a>*@
+                        <a href="@Html.EncodedLink("", "Edit", "Kullanici", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-warning">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a href="@Html.EncodedLink("", "Delete", "Kullanici", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                        <a href="@Html.EncodedLink("", "Details", "Kullanici", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-info">
+                            <span class="glyphicon glyphicon-search"></span>
                         </a>
 
                     </td>

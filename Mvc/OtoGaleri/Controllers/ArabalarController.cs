@@ -11,10 +11,11 @@ using OtoGaleri_Entities.Tablolar;
 using OtoGaleri_BusinessLayer;
 using OtoGaleri_BusinessLayer.Result;
 using OtoGaleri.ViewModels;
+using OtoGaleri.Utils;
 
 namespace OtoGaleri.Controllers
 {
-    public class ArabalarController : Controller
+    public class ArabalarController : CarController
     {
       private ArabalarManager a = new ArabalarManager();
       private YeniArabalarManager yenia = new YeniArabalarManager();
@@ -250,7 +251,7 @@ namespace OtoGaleri.Controllers
         [HttpPost]
         public ActionResult PesonelIslemKullanicisikiralik(KirayaVerilmisArabalar model)
         {
-            if (model.KiradanAlamaTarih > DateTime.Now && model.KiralamaTarih>=DateTime.Now)
+            if (model.KiradanAlamaTarih >= DateTime.Today && model.KiralamaTarih>=DateTime.Today)
             {//olmadı yine dene......
                 int idsi = Convert.ToInt32(TempData["araba"]);
                 KiralikArabalar car = kiralikmanager.Find(x => x.Arabaid.Id == idsi);
@@ -285,7 +286,7 @@ namespace OtoGaleri.Controllers
                 kayit.KiralayanPersonel = ortakkkisi.Adi+" "+ortakkkisi.Soyadi;
                 kayit.KiralamaTarih = model.KiralamaTarih;
                 kayit.KiradanAlamaTarih = model.KiradanAlamaTarih;
-                kayit.AlinacakUcret = sonuc1 * car.Arabaid.Fiyat;
+                kayit.AlinacakUcret = sonuc1 * model.AlinacakUcret;
                 kirayaverilmismanager.Insert(kayit);
                 try
                 {
@@ -425,31 +426,43 @@ namespace OtoGaleri.Controllers
         [HttpPost]
         public ActionResult KiralikArabaGunUzat(KirayaVerilmisArabalar model)
         {
-            ModelState.Remove("HangiKullanici");
-            ModelState.Remove("KiralayanPersonel");
-            ModelState.Remove("KiralikAraba");
-            ModelState.Remove("KiralamaTarih");
-            if (ModelState.IsValid)
+            if (model.KiradanAlamaTarih > DateTime.Today )
             {
-                KirayaVerilmisArabalar kiradaki = kirayaverilmismanager.Find(x => x.Id == model.Id);
-                Arabalar aa = a.Find(x => x.Id == kiradaki.KiralikAraba.Arabaid.Id);
-                DateTime tariheski = kiradaki.KiradanAlamaTarih;
-               
-                kiradaki.KiradanAlamaTarih = model.KiradanAlamaTarih;
+                ModelState.Remove("HangiKullanici");
+                ModelState.Remove("KiralayanPersonel");
+                ModelState.Remove("KiralikAraba");
+                ModelState.Remove("KiralamaTarih");
+                if (ModelState.IsValid)
+                {
+                    KirayaVerilmisArabalar kiradaki = kirayaverilmismanager.Find(x => x.Id == model.Id);
+                    Arabalar aa = a.Find(x => x.Id == kiradaki.KiralikAraba.Arabaid.Id);
+                    DateTime tariheski = kiradaki.KiradanAlamaTarih;
 
-              
+                    kiradaki.KiradanAlamaTarih = model.KiradanAlamaTarih;
 
-                DateTime tarihyeni = model.KiradanAlamaTarih;
-                TimeSpan sonuc = tarihyeni - tariheski;
-                int sonuc1 = Convert.ToInt32(sonuc.Days);
-                kiradaki.AlinacakUcret = kiradaki.AlinacakUcret + aa.Fiyat*sonuc1;
-                kirayaverilmismanager.Update(kiradaki);
 
-                Gelirler gelir = gelirmanager.Find(x => x.Araba.Id == aa.Id);
-                gelir.Fiyat = kiradaki.AlinacakUcret;
-                gelirmanager.Update(gelir);
 
-                return RedirectToAction("Index","Home");
+                    DateTime tarihyeni = model.KiradanAlamaTarih;
+                    TimeSpan sonuc = tarihyeni - tariheski;
+                    int sonuc1 = Convert.ToInt32(sonuc.Days);
+                    kiradaki.AlinacakUcret = kiradaki.AlinacakUcret + aa.Fiyat * sonuc1;
+                    kirayaverilmismanager.Update(kiradaki);
+
+                    Gelirler gelir = gelirmanager.Find(x => x.Araba.Id == aa.Id);
+                    gelir.Fiyat = kiradaki.AlinacakUcret;
+                    gelirmanager.Update(gelir);
+
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            else
+            {
+                ErrorViewModel notifyonj = new ErrorViewModel()
+                {
+                    Title = "Lütfen Tarih Seçimi Bugünden Küçük Olmasın.Güvenlik Açısından Anasayfaya Yönlendiriliyorsunuz."
+
+                };
+                return View("Error", notifyonj);
             }
             return View();
         }
@@ -642,7 +655,7 @@ namespace OtoGaleri.Controllers
 
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
             return View(arabalar);
@@ -651,14 +664,14 @@ namespace OtoGaleri.Controllers
       
 
         // GET: Arabalar/Edit/5
-        public ActionResult Edit(int? id)
-        {
+        public ActionResult Edit(int? id)//int? id
+        {       //id
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest); 
             }
-          
-            Arabalar arabalar = a.Find(x=>x.Id==id.Value);
+                                            //Id==id
+            Arabalar arabalar = a.Find(x=>x.Id==id);
             if (arabalar.Durum == OtoGaleri_Entities.ArabalarEnums.Durum2.IkinciEl)
             {
                 IkinciEl ikinciel = ikincielarabalar.Find(x => x.Arabaid.Id == arabalar.Id);
@@ -712,7 +725,7 @@ namespace OtoGaleri.Controllers
                 {
 
                     Title = "Güncelleme Başarılı",
-                    RedirectingUrl = "/Arabalar/Index",
+                    RedirectingUrl = "/Home/Index",
 
                 };
                 notifyobj.Items.Add("Güncelleme işleminiz başarılı bir şekilde gerçekleşmiştir.");
@@ -773,7 +786,7 @@ namespace OtoGaleri.Controllers
         {
             Arabalar araba = a.Find(x => x.Id == id);
             a.Delete(araba);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
         
         public ActionResult KullaniciKiraladigim()

@@ -105,6 +105,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\lightbox.min.css" />
     <Content Include="Content\login-register.css" />
     <Content Include="Content\shop-homepage.css" />
     <Content Include="Content\Site.css" />
@@ -152,6 +153,7 @@
     <Content Include="Content\validation-summary.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\fm.jpg" />
     <Content Include="Images\logo.ico" />
     <Content Include="Images\oto11.jpg" />
     <Content Include="Images\oto2.jpg" />
@@ -168,6 +170,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\lightbox-plus-jquery.min.js" />
     <Content Include="XmlFile\KasaSifre.xml" />
     <None Include="Properties\PublishProfiles\fth.pubxml" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
@@ -201,6 +204,9 @@
     <Compile Include="Models\ViewModels.cs" />
     <Compile Include="Models\YoneticiMesajViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RazorHelpers\RazorHelpers.cs" />
+    <Compile Include="Utils\BaseController.cs" />
+    <Compile Include="Utils\CarController.cs" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="ViewModels\InfoViewModel.cs" />
     <Compile Include="ViewModels\NotifyWievModelBase.cs" />
@@ -297,6 +303,7 @@
     <Content Include="Views\Home\YetkiliMsj.cshtml" />
     <Content Include="Views\Home\KullaniciCevap.cshtml" />
     <Content Include="Views\Home\YetkiliMail.cshtml" />
+    <Content Include="Views\Home\ErrorPage404.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

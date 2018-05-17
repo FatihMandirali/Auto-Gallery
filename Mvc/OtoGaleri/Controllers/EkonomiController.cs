@@ -1,4 +1,5 @@
-﻿using OtoGaleri.ViewModels;
+﻿using OtoGaleri.Utils;
+using OtoGaleri.ViewModels;
 using OtoGaleri_BusinessLayer;
 using OtoGaleri_DataAccessLayer.Entity_Framework;
 using OtoGaleri_Entities.Tablolar;
@@ -12,7 +13,7 @@ using System.Web.Mvc;
 
 namespace OtoGaleri.Controllers
 {
-    public class EkonomiController : Controller
+    public class EkonomiController : BaseController
     {
         PersonelManager p_manager = new PersonelManager();
         HizmetlilerManager h_manager = new HizmetlilerManager();
@@ -108,7 +109,7 @@ namespace OtoGaleri.Controllers
             }
            
 
-            return RedirectToAction("Masraflar","Ekonomi") ;
+            return RedirectToAction("Index","Home") ;
             
         }
 
@@ -142,7 +143,7 @@ namespace OtoGaleri.Controllers
             if (ModelState.IsValid)
             {
                 ft_manager.Insert(model);
-                return RedirectToAction("FaturaGor", "Ekonomi");
+                return RedirectToAction("Index", "Home");
             }
             return View();
         }
@@ -207,7 +208,7 @@ namespace OtoGaleri.Controllers
                 {
 
                     Title = "Fatura Ödendi",
-                    RedirectingUrl = "/Ekonomi/FaturaGor",
+                    RedirectingUrl = "/Home/Index",
 
                 };
                 notifyobj.Items.Add("Fatura Ödeme işleminiz başarılı bir şekilde gerçekleşmiştir.");
@@ -260,7 +261,7 @@ namespace OtoGaleri.Controllers
                 {
 
                     Title = "Diğer Masraf Ekleme",
-                    RedirectingUrl = "/Ekonomi/DigerMasraflar",
+                    RedirectingUrl = "/Home/Index",
 
                 };
                 notifyobj.Items.Add("Diğer Masraf Ekleme işleminiz başarılı bir şekilde gerçekleşmiştir.");
@@ -294,7 +295,7 @@ namespace OtoGaleri.Controllers
                 {
 
                     Title = "Fatura Ödendi",
-                    RedirectingUrl = "/Ekonomi/DigerMasraflar",
+                    RedirectingUrl = "/Home/Index",
 
                 };
                 notifyobj.Items.Add("Diğer Masraf Ödeme işleminiz başarılı bir şekilde gerçekleşmiştir.");
@@ -324,7 +325,7 @@ namespace OtoGaleri.Controllers
             if (ModelState.IsValid)
             {
                 dmt_manager.Insert(model);
-                return RedirectToAction("DigerMasrafTuru", "Ekonomi");
+                return RedirectToAction("Index", "Home");
             }
             return View();
         }

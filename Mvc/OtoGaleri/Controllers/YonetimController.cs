@@ -10,16 +10,34 @@ using System.Web.Mvc;
 using OtoGaleri_Entities.Tablolar;
 using OtoGaleri_BusinessLayer;
 using OtoGaleri_BusinessLayer.Result;
+using OtoGaleri.ViewModels;
+using OtoGaleri.Utils;
 
 namespace OtoGaleri.Controllers
 {
-    public class YonetimController : Controller
+    public class YonetimController : BaseController
     {
+        public ActionResult ErrorLogin()
+        {
+            if (Session["loginy"] == null)
+            {
+                ErrorViewModel notifyonj = new ErrorViewModel()
+                {
+                    Title = "Geçersiz İşlem.",
+                    
 
+                };
+                
+                return View("Error", notifyonj);
+            }
+            return null;
+        }
        private YoneticiManager y = new YoneticiManager();
         // GET: Yonetim
+        //burda kaldım araştır....
         public ActionResult Index()
         {
+            ErrorLogin();
             return View(y.List());
         }
 
@@ -63,7 +81,7 @@ namespace OtoGaleri.Controllers
                     return View(yoneticiler);
                 }
                 //y.Insert(yoneticiler);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
             return View(yoneticiler);
@@ -113,7 +131,7 @@ namespace OtoGaleri.Controllers
                  yo.Telefon = yoneticiler.Telefon;
 
                  y.Update(yo);//incelenecek*///bu yöntemi kullanmadık çünkü kullanıcı eklediğimiz için aynı isimleri sorguladık.
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             return View(yoneticiler);
         }
@@ -140,7 +158,7 @@ namespace OtoGaleri.Controllers
         {
             Yoneticiler yoneticiler = y.Find(x => x.Id == id);
             y.Delete(yoneticiler);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
 
        

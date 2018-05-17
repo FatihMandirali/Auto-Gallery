@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.Yoneticiler>
-
+@using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "Index";
 }
@@ -14,12 +14,19 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <p>
-            <a href="/Yonetim/Create" class="btn btn-primary">
+            @*<a href="/Yonetim/Create" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span>Oluştur
             </a>
             <a href="/XmlKasaSifre/GosterXML" class="btn btn-danger">
                 <span class="glyphicon glyphicon-sunglasses"></span>Kasa Şifresi
+            </a>*@
+            <a href="@Html.EncodedLink("", "Create", "Yonetim", new { }, new { @class = "form-control"})" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>Oluştur
             </a>
+            <a href="@Html.EncodedLink("", "GosterXML", "XmlKasaSifre", new {}, new { @class = "form-control"})" class="btn btn-danger">
+                <span class="glyphicon glyphicon-sunglasses"></span>Kasa Şifresi
+            </a>
+
         </p>
         <table class="table">
             <tr>
@@ -93,7 +100,7 @@
                   
                     <td>
 
-                        <a href="/Yonetim/Edit/@item.Id" class="btn btn-warning">
+                        @*<a href="/Yonetim/Edit/@item.Id" class="btn btn-warning">
                             <span class="glyphicon glyphicon-edit"></span>
                         </a>
                         <a href="/Yonetim/Details/@item.Id" class="btn btn-info">
@@ -101,6 +108,15 @@
                         </a>
                         <a href="/Yonetim/Delete/@item.Id" class="btn btn-danger">
                             <span class="glyphicon glyphicon-trash"></span>
+                        </a>*@
+                        <a href="@Html.EncodedLink("", "Edit", "Yonetim", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-warning">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a href="@Html.EncodedLink("", "Delete", "Yonetim", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                        <a href="@Html.EncodedLink("", "Details", "Yonetim", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-info">
+                            <span class="glyphicon glyphicon-search"></span>
                         </a>
                         
                     </td>

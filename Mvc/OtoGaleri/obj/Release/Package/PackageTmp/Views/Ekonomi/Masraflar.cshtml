@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.CalisanUcretleri>
+    @using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "Masraflar";
 }
@@ -61,7 +62,10 @@
 
             <p>
              
-               <a href="/Ekonomi/FaturaGor" class="btn btn-success">
+               @*<a href="/Ekonomi/FaturaGor" class="btn btn-success">
+                    <span class="glyphicon glyphicon-home"></span>Faturaları Gör
+                </a>*@
+                <a href="@Html.EncodedLink("", "FaturaGor", "Ekonomi", new { }, new { @class = "form-control"})" class="btn btn-success">
                     <span class="glyphicon glyphicon-home"></span>Faturaları Gör
                 </a>
             </p>
@@ -71,7 +75,10 @@
 
             <p>
 
-                <a href="/Ekonomi/DigerMasraflar" class="btn btn-default">
+                @*<a href="/Ekonomi/DigerMasraflar" class="btn btn-default">
+                    <span class="glyphicon glyphicon-home"></span>Diğer Masrafları Gör
+                </a>*@
+                <a href="@Html.EncodedLink("", "DigerMasraflar", "Ekonomi", new { }, new { @class = "form-control"})" class="btn btn-default">
                     <span class="glyphicon glyphicon-home"></span>Diğer Masrafları Gör
                 </a>
             </p>

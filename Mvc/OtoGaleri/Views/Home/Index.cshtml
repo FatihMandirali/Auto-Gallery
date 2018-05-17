@@ -6,10 +6,13 @@
 }
 <title>Anasayfa</title>
 <!-- Page Content -->
+
 <script src="http://rawgithub.com/stidges/jquery-searchable/master/dist/jquery.searchable-1.0.0.min.js">
    
 </script>
+@*<link href="~/Content/lightbox.min.css" rel="stylesheet" />
 <link href="~/Content/shop-homepage.css" rel="stylesheet" />
+<script src="~/Scripts/lightbox-plus-jquery.min.js"></script>*@
 <div class="container">
     @{
         Yoneticiler y = null;
@@ -75,7 +78,7 @@
                              {
                           <div class="col-sm-4 col-lg-4 col-md-4">
                             <div class="thumbnail">
-                                <img src="~/Images/@araba.Resim1">   @*http://placehold.it/320x150*@
+                                <a href="~/Images/@araba.Resim1" data-lightbox="mygallery">  <img src="~/Images/@araba.Resim1"> </a>
                                 <div class="caption">
                                     <h4 class="pull-right">@araba.Fiyat ₺ </h4>
                                     <h4 id="adsoyad">
@@ -446,3 +449,5 @@
 
 
 
+<link href="~/Content/lightbox.min.css" rel="stylesheet" />
+<script src="~/Scripts/lightbox-plus-jquery.min.js"></script>

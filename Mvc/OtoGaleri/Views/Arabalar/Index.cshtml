@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.Arabalar>
+@using OtoGaleri.RazorHelpers
 @using OtoGaleri_Entities.Tablolar
 @{
     ViewBag.Title = "Index";
@@ -18,7 +19,10 @@
         <p>
             @if (Session["loginp"] == null)
             {
-            <a href="/Arabalar/Create" class="btn btn-primary">
+            @*<a href="/Arabalar/Create" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>Oluştur
+            </a>*@
+            <a href="@Html.EncodedLink("", "Create", "Arabalar", new { }, new { @class = "form-control"})" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span>Oluştur
             </a>
             }
@@ -154,16 +158,26 @@
                         }
                         else
                         {
-                       <a href="/Arabalar/Edit/@item.Id" class="btn btn-warning">
-                        <span class="glyphicon glyphicon-edit"></span>
-                        </a>
-
-                       <a href="/Arabalar/Delete/@item.Id" class="btn btn-danger">
+                       @*<a href="/Arabalar/Edit/@item.Id" class="btn btn-warning">
+    <span class="glyphicon glyphicon-edit"></span>  http:// localhost:58465/EncodeUrl/?url=Lxc5acDr5o3pku7zCe1dtkin8qf/y/1F
+    </a>*@
+                           
+                            
+                       @*<a href="/Arabalar/Delete/@item.Id" class="btn btn-danger">
                          <span class="glyphicon glyphicon-trash"></span>
+                        </a>*@
+                            <a href="@Html.EncodedLink("", "Edit", "Arabalar", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        <a href="@Html.EncodedLink("", "Delete", "Arabalar", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span>
                         </a>
-                        <a href="/Arabalar/Details/@item.Id" class="btn btn-info">
+                        <a href="@Html.EncodedLink("", "Details", "Arabalar", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-info">
                             <span class="glyphicon glyphicon-search"></span>
                         </a>
+                        @*<a href="/Arabalar/Details/@item.Id" class="btn btn-info">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>*@
                         }
                     </td>
                     
@@ -174,7 +188,6 @@
         </table>
         </div>
     </div>
-
 
 @*<script type="text/javascript">
     function showPup() {

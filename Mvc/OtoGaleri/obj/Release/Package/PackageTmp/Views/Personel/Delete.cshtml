@@ -1,5 +1,5 @@
 ﻿@model OtoGaleri_Entities.Tablolar.Personeller
-
+@using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "Delete";
 }
@@ -147,7 +147,10 @@
                 <button type="submit" class="btn btn-danger">
                     <span class="glyphicon glyphicon-remove"></span>Sil
                 </button>
-                @Html.ActionLink("Listeye Dön", "Index", "Personel", null, new { @class = "btn btn-default" })
+                @*@Html.ActionLink("Listeye Dön", "Index", "Personel", null, new { @class = "btn btn-default" })*@
+                <a href="@Html.EncodedLink("", "Index", "Personel", new { id=Model.Id}, new { @class = "form-control"})" class="btn btn-default">
+                    Listeye Dön
+                </a>
             </div>
         }
     </div>

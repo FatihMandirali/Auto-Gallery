@@ -1,4 +1,5 @@
-﻿using OtoGaleri_Entities.XmlTablo;
+﻿using OtoGaleri.Utils;
+using OtoGaleri_Entities.XmlTablo;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +10,7 @@ using System.Xml.Linq;
 
 namespace OtoGaleri.Controllers
 {
-    public class XmlKasaSifreController : Controller
+    public class XmlKasaSifreController : BaseController
     {
         // GET: XmlKasaSifre
         public ActionResult GosterXML()

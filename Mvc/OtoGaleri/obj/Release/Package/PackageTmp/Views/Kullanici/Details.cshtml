@@ -1,5 +1,5 @@
 ﻿@model OtoGaleri_Entities.Tablolar.Kullanicilar
-
+@using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "Details";
 }
@@ -124,10 +124,16 @@
 
         <p>
 
-            <a href="/Kullanici/Edit/@Model.Id" class="btn btn-success">
+            @*<a href="/Kullanici/Edit/@Model.Id" class="btn btn-success">
                 <span class="glyphicon glyphicon-edit"></span>Düzenle
             </a>
             <a href="/Kullanici/Index" class="btn btn-default">
+                <span class="glyphicon glyphicon-arrow-left"></span>Tüm Liste
+            </a>*@
+            <a href="@Html.EncodedLink("", "Edit", "Kullanici", new { id=Model.Id}, new { @class = "form-control"})" class="btn btn-success">
+                <span class="glyphicon glyphicon-edit"></span>
+            </a>
+            <a href="@Html.EncodedLink("", "Index", "Kullanici", new { id=Model.Id}, new { @class = "form-control"})" class="btn btn-default">
                 <span class="glyphicon glyphicon-arrow-left"></span>Tüm Liste
             </a>
         </p>

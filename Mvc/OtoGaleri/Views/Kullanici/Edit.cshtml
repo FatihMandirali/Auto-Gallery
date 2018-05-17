@@ -1,5 +1,5 @@
 ﻿@model OtoGaleri_Entities.Tablolar.Kullanicilar
-
+@using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "Edit";
 }
@@ -131,7 +131,11 @@
                     <button type="submit" class="btn btn-success">
                         <span class="glyphicon glyphicon-floppy-disk"></span>Kaydet
                     </button>
-                    @Html.ActionLink("Listeye Dön", "Index", "Kullanici", null, new { @class = "btn btn-default" })
+                    @*@Html.ActionLink("Listeye Dön", "Index", "Kullanici", null, new { @class = "btn btn-default" })*@
+
+                    <a href="@Html.EncodedLink("", "Index", "Kullanici", new {}, new { @class = "form-control"})" class="btn btn-default">
+                        Listeye Dön
+                    </a>
                 </div>
 
             </div>

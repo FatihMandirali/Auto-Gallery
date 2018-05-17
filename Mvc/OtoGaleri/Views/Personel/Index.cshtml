@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.Personeller>
-
+@using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "Index";
 }
@@ -14,7 +14,10 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <p>
-            <a href="/Personel/Create" class="btn btn-primary">
+            @*<a href="/Personel/Create" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>Oluştur
+            </a>*@
+            <a href="@Html.EncodedLink("", "Create", "Personel", new {}, new { @class = "form-control"})" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span>Oluştur
             </a>
         </p>
@@ -101,16 +104,33 @@
 
                     <td>
 
-                        <a href="/Personel/Edit/@item.Id" class="btn btn-warning">
-                            <span class="glyphicon glyphicon-edit"></span>
-                        </a>
-                        <a href="/Personel/Details/@item.Id" class="btn btn-info">
-                            <span class="glyphicon glyphicon-search"></span>
-                        </a>
-                        <a href="/Personel/Delete/@item.Id" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-trash"></span>
-                        </a>
-
+                        @*<a href="/Personel/Edit/@item.Id" class="btn btn-warning">
+                <span class="glyphicon glyphicon-edit"></span>
+            </a>
+            <a href="/Personel/Details/@item.Id" class="btn btn-info">
+                <span class="glyphicon glyphicon-search"></span>
+            </a>
+            <a href="/Personel/Delete/@item.Id" class="btn btn-danger">
+                <span class="glyphicon glyphicon-trash"></span>
+            </a>*@
+                        @if (Session["loginy"] != null)
+                        {
+                            <a href="@Html.EncodedLink("", "Edit", "Personel", new { id = item.Id }, new { @class = "form-control" })" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                            <a href="@Html.EncodedLink("", "Delete", "Personel", new { id = item.Id }, new { @class = "form-control" })" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                            <a href="@Html.EncodedLink("", "Details", "Personel", new { id = item.Id }, new { @class = "form-control" })" class="btn btn-info">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Html.EncodedLink("", "Details", "Personel", new { id = item.Id }, new { @class = "form-control" })" class="btn btn-info">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </a>
+                        }
                     </td>
                 </tr>
             }

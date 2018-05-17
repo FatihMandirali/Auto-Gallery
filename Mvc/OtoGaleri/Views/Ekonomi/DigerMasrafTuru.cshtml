@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.DigerMasrafTurleri>
+    @using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "DigerMasrafTuru";
 }
@@ -29,8 +30,15 @@
             }
 
         </table>
-        @Html.ActionLink("Diğer Masrafları Dön", "DigerMasraflar", "Ekonomi", null, new { @class = "btn btn-default" })
-        @Html.ActionLink("Diğer Masraf Türü Ekle", "DigerMasrafTuruEkle", "Ekonomi", null, new { @class = "btn btn-primary" })
+        @*@Html.ActionLink("Diğer Masrafları Dön", "DigerMasraflar", "Ekonomi", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Diğer Masraf Türü Ekle", "DigerMasrafTuruEkle", "Ekonomi", null, new { @class = "btn btn-primary" })*@
+
+        <a href="@Html.EncodedLink("", "DigerMasraflar", "Ekonomi", new { }, new { @class = "form-control"})" class="btn btn-default">
+            Diğer Masraflara Dön
+        </a>
+        <a href="@Html.EncodedLink("", "DigerMasrafTuru", "Ekonomi", new { }, new { @class = "form-control"})" class="btn btn-primary">
+            Diğer Masraf Türlerini Gör
+        </a>
 
     </div>
 </div>

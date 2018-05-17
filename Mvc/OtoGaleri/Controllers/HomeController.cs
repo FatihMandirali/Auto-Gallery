@@ -725,6 +725,12 @@ namespace OtoGaleri.Controllers
             }
         }
 
+        public ActionResult ErrorPage404()
+        {
+
+            return View();
+        }
+
 
 
         }

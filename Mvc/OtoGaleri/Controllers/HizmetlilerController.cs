@@ -9,10 +9,11 @@ using System.Web.Mvc;
 using OtoGaleri_Entities.Tablolar;
 using OtoGaleri_BusinessLayer;
 using OtoGaleri_BusinessLayer.Result;
+using OtoGaleri.Utils;
 
 namespace OtoGaleri.Controllers
 {
-    public class HizmetlilerController : Controller
+    public class HizmetlilerController : BaseController
     {
         private HizmetlilerManager h = new HizmetlilerManager();
 
@@ -59,7 +60,7 @@ namespace OtoGaleri.Controllers
                     res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
                     return View(hizmetliler);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
             return View(hizmetliler);
@@ -94,7 +95,7 @@ namespace OtoGaleri.Controllers
                     res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
                     return View(hizmetliler);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             return View(hizmetliler);
         }
@@ -121,7 +122,7 @@ namespace OtoGaleri.Controllers
         {
             Hizmetliler hizmetli = h.Find(x => x.Id == id);
             h.Delete(hizmetli);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
 
       

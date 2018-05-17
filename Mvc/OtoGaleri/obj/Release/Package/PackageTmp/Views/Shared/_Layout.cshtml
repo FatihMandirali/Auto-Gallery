@@ -1,4 +1,5 @@
 ﻿@using OtoGaleri_Entities.Tablolar
+@using OtoGaleri.RazorHelpers
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +20,10 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+    @*<link href="~/Content/lightbox.min.css" rel="stylesheet" />*@
+    @*<link href="~/Content/shop-homepage.css" rel="stylesheet" />*@
+    @*<script src="~/Scripts/lightbox-plus-jquery.min.js"></script>*@
 
     <link href="~/Content/themes/base/all.css" rel="stylesheet" />
 </head>
@@ -144,7 +149,10 @@
 
                             </ul>
                         </li>
-                        <li><a href="/Home/MesajKutusuY"><span class="glyphicon glyphicon-envelope"></span></a></li>
+                        @*<li><a href="/Home/MesajKutusuY"><span class="glyphicon glyphicon-envelope"></span></a></li>*@
+                        <li><a href="@Html.EncodedLink("", "MesajKutusuY", "Home", new { }, new { @class = "form-control"})" >
+                                <span class="glyphicon glyphicon-envelope"></span>
+</a></li>
                         @*<span class="badge">5</span>*@
                     }
                     else if (p != null)
@@ -194,8 +202,13 @@
 
                             </ul>
                         </li>
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link" href="/Home/MesajKutusuK"><span class="glyphicon glyphicon-envelope"></span>Mesajlaşmalarım</a>
+                        </li>*@
+                        <li>
+                            <a href="@Html.EncodedLink("", "MesajKutusuK", "Home", new { }, new { @class = "form-control"})">
+                                <span class="glyphicon glyphicon-envelope"></span>Mesajlaşmalarım
+                            </a>
                         </li>
 
                     }

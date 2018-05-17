@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.Hizmetliler>
-
+@using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "Index";
 }
@@ -14,7 +14,10 @@
 <div class="row">
     <div class="col-md-10 col-md-offset-1">
         <p>
-            <a href="/Hizmetliler/Create" class="btn btn-primary">
+            @*<a href="/Hizmetliler/Create" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>Oluştur
+            </a>*@
+            <a href="@Html.EncodedLink("", "Create", "Hizmetliler", new { }, new { @class = "form-control"})" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span>Oluştur
             </a>
         </p>
@@ -77,7 +80,7 @@
                         @Html.DisplayFor(modelItem => item.UcretPeriyodu)
                     </td>
                     <td>
-                        <a href="/Hizmetliler/Edit/@item.Id" class="btn btn-warning">
+                        @*<a href="/Hizmetliler/Edit/@item.Id" class="btn btn-warning">
                             <span class="glyphicon glyphicon-edit"></span>
                         </a>
                         <a href="/Hizmetliler/Details/@item.Id" class="btn btn-info">
@@ -85,6 +88,15 @@
                         </a>
                         <a href="/Hizmetliler/Delete/@item.Id" class="btn btn-danger">
                             <span class="glyphicon glyphicon-trash"></span>
+                        </a>*@
+                        <a href="@Html.EncodedLink("", "Edit", "Hizmetliler", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-warning">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a href="@Html.EncodedLink("", "Delete", "Hizmetliler", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                        <a href="@Html.EncodedLink("", "Details", "Hizmetliler", new { id=item.Id}, new { @class = "form-control"})" class="btn btn-info">
+                            <span class="glyphicon glyphicon-search"></span>
                         </a>
                     </td>
                 </tr>

@@ -1,4 +1,5 @@
 ﻿@model OtoGaleri_Entities.Tablolar.DigerMasraflar
+@using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "DigerMasraflarDetay";
 }
@@ -24,7 +25,7 @@
                     @Html.DisplayFor(model => model.Tutar)
                 </dd>
 
-            
+
                 <dt>
                     @Html.DisplayNameFor(model => model.OdemeTarihi)
                 </dt>
@@ -48,9 +49,15 @@
                         <span class="glyphicon glyphicon-plus"></span>Ödemeyi Yap
                     </button>
 
-                    @Html.ActionLink("Diğer Masraflara Dön", "DigerMasraflar", "Ekonomi", null, new { @class = "btn btn-default" })
-                    @Html.ActionLink("Diğer Masraf Türlerini Gör", "DigerMasrafTuru", "Ekonomi", null, new { @class = "btn btn-primary" })
+                    @*@Html.ActionLink("Diğer Masraflara Dön", "DigerMasraflar", "Ekonomi", null, new { @class = "btn btn-default" })
+                    @Html.ActionLink("Diğer Masraf Türlerini Gör", "DigerMasrafTuru", "Ekonomi", null, new { @class = "btn btn-primary" })*@
 
+                    <a href="@Html.EncodedLink("", "DigerMasraflar", "Ekonomi", new { }, new { @class = "form-control"})" class="btn btn-default">
+                        Diğer Masraflara Dön
+                    </a>
+                    <a href="@Html.EncodedLink("", "DigerMasrafTuru", "Ekonomi", new { }, new { @class = "form-control"})" class="btn btn-primary">
+                        Diğer Masraf Türlerini Gör
+                    </a>
                 </div>
             </div>
 

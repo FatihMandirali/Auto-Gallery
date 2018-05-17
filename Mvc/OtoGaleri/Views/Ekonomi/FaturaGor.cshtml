@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<OtoGaleri_Entities.Tablolar.Faturalar>
+    @using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "FaturaGor";
 }
@@ -33,14 +34,22 @@
     <div class="col-md-10 col-md-offset-1">
 
         <p>
-            <a href="/Ekonomi/FaturaEkle" class="btn btn-default">
+            @*<a href="/Ekonomi/FaturaEkle" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus"></span>Fatura Ekle
+            </a>*@
+            <a href="@Html.EncodedLink("", "FaturaEkle", "Ekonomi", new { }, new { @class = "form-control"})" class="btn btn-default">
                 <span class="glyphicon glyphicon-plus"></span>Fatura Ekle
             </a>
-            <a href="/Ekonomi/FaturaTuru" class="btn btn-primary">
+            @*<a href="/Ekonomi/FaturaTuru" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plus"></span>Fatura Türü Ekle
+            </a>*@
+            <a href="@Html.EncodedLink("", "FaturaTuru", "Ekonomi", new { }, new { @class = "form-control"})" class="btn btn-primary">
                 <span class="glyphicon glyphicon-plus"></span>Fatura Türü Ekle
             </a>
-
-            <a href="/Ekonomi/FaturaTuruGor" class="btn btn-success">
+            @*<a href="/Ekonomi/FaturaTuruGor" class="btn btn-success">
+                <span class="glyphicon glyphicon-plus"></span>Fatura Türlerini Gör
+            </a>*@
+            <a href="@Html.EncodedLink("", "FaturaTuruGor", "Ekonomi", new { }, new { @class = "form-control"})" class="btn btn-success">
                 <span class="glyphicon glyphicon-plus"></span>Fatura Türlerini Gör
             </a>
 
@@ -80,9 +89,13 @@
                     <td>
                         @if (item.Odendimi == false)
                         {
-                        <a href="/Ekonomi/FaturaOde/@item.Id" class="btn btn-primary">
+                        @*<a href="/Ekonomi/FaturaOde/@item.Id" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-plus"></span>Öde
+                        </a>*@
+                        <a href="@Html.EncodedLink("", "FaturaOde", "Ekonomi", new {id=item.Id }, new { @class = "form-control"})" class="btn btn-primary">
                             <span class="glyphicon glyphicon-plus"></span>Öde
                         </a>
+                    
                         }
                     </td>
             </tr>

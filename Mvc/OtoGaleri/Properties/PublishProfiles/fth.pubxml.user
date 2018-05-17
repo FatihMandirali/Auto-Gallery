@@ -23,22 +23,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2018 21:25:51</publishTime>
     </File>
     <File Include="bin/OtoGaleri.dll">
-      <publishTime>05/06/2018 00:20:39</publishTime>
+      <publishTime>05/17/2018 23:27:52</publishTime>
     </File>
     <File Include="bin/OtoGaleri_BusinessLayer.dll">
-      <publishTime>05/06/2018 00:20:36</publishTime>
+      <publishTime>05/17/2018 23:27:51</publishTime>
     </File>
     <File Include="bin/OtoGaleri_Common.dll">
-      <publishTime>05/05/2018 18:20:06</publishTime>
+      <publishTime>05/17/2018 23:27:50</publishTime>
     </File>
     <File Include="bin/OtoGaleri_Core.dll">
-      <publishTime>04/27/2018 21:43:13</publishTime>
+      <publishTime>05/17/2018 23:27:50</publishTime>
     </File>
     <File Include="bin/OtoGaleri_DataAccessLayer.dll">
-      <publishTime>05/06/2018 00:20:35</publishTime>
+      <publishTime>05/17/2018 23:27:50</publishTime>
     </File>
     <File Include="bin/OtoGaleri_Entities.dll">
-      <publishTime>04/27/2018 21:43:13</publishTime>
+      <publishTime>05/17/2018 23:27:50</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>01/09/2018 21:25:51</publishTime>
@@ -77,7 +77,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2018 21:25:52</publishTime>
     </File>
     <File Include="bin/System.Web.Extensions.dll">
-      <publishTime>04/12/2014 00:08:08</publishTime>
+      <publishTime>05/28/2014 04:35:42</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>01/09/2018 21:25:51</publishTime>
@@ -89,7 +89,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/09/2018 21:25:50</publishTime>
     </File>
     <File Include="bin/System.Web.Services.dll">
-      <publishTime>04/12/2014 00:08:08</publishTime>
+      <publishTime>05/28/2014 04:35:42</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Deployment.dll">
       <publishTime>01/09/2018 21:25:51</publishTime>
@@ -123,6 +123,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Content/bootstrap.min.css.map">
       <publishTime>01/10/2018 18:47:48</publishTime>
+    </File>
+    <File Include="Content/lightbox.min.css">
+      <publishTime>05/17/2018 23:03:38</publishTime>
     </File>
     <File Include="Content/login-register.css">
       <publishTime>01/12/2018 22:29:26</publishTime>
@@ -277,6 +280,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Global.asax">
       <publishTime>01/09/2018 21:25:50</publishTime>
     </File>
+    <File Include="Images/fm.jpg">
+      <publishTime>05/13/2018 06:35:35</publishTime>
+    </File>
     <File Include="Images/logo.ico">
       <publishTime>05/06/2018 00:17:39</publishTime>
     </File>
@@ -337,6 +343,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Scripts/jquery-ui-1.12.1.min.js">
       <publishTime>02/08/2018 13:05:07</publishTime>
     </File>
+    <File Include="Scripts/lightbox-plus-jquery.min.js">
+      <publishTime>05/17/2018 23:02:25</publishTime>
+    </File>
     <File Include="Scripts/modernizr-2.6.2.js">
       <publishTime>01/10/2018 18:55:12</publishTime>
     </File>
@@ -350,25 +359,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/21/2018 23:09:04</publishTime>
     </File>
     <File Include="Views/Arabalar/Create.cshtml">
-      <publishTime>04/24/2018 11:46:46</publishTime>
+      <publishTime>05/12/2018 12:15:39</publishTime>
     </File>
     <File Include="Views/Arabalar/Delete.cshtml">
-      <publishTime>04/24/2018 11:46:53</publishTime>
+      <publishTime>05/12/2018 12:14:38</publishTime>
     </File>
     <File Include="Views/Arabalar/Details.cshtml">
-      <publishTime>04/24/2018 11:47:01</publishTime>
+      <publishTime>05/12/2018 12:12:59</publishTime>
     </File>
     <File Include="Views/Arabalar/Edit.cshtml">
-      <publishTime>04/24/2018 11:47:11</publishTime>
+      <publishTime>05/12/2018 12:11:53</publishTime>
     </File>
     <File Include="Views/Arabalar/GelirlerAraba.cshtml">
       <publishTime>04/24/2018 11:56:35</publishTime>
     </File>
     <File Include="Views/Arabalar/Index.cshtml">
-      <publishTime>04/24/2018 11:47:27</publishTime>
+      <publishTime>05/12/2018 12:17:40</publishTime>
     </File>
     <File Include="Views/Arabalar/KiralikArabaGunUzat.cshtml">
-      <publishTime>04/24/2018 11:57:17</publishTime>
+      <publishTime>05/17/2018 22:21:55</publishTime>
     </File>
     <File Include="Views/Arabalar/KiralikArabaTeslimAl.cshtml">
       <publishTime>04/24/2018 11:57:16</publishTime>
@@ -410,34 +419,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/24/2018 12:05:09</publishTime>
     </File>
     <File Include="Views/Ekonomi/DigerMasraflar.cshtml">
-      <publishTime>04/24/2018 11:50:45</publishTime>
+      <publishTime>05/12/2018 13:11:15</publishTime>
     </File>
     <File Include="Views/Ekonomi/DigerMasraflarDetay.cshtml">
-      <publishTime>04/24/2018 11:53:57</publishTime>
+      <publishTime>05/12/2018 13:14:15</publishTime>
     </File>
     <File Include="Views/Ekonomi/DigerMasraflarEkle.cshtml">
-      <publishTime>04/24/2018 11:51:54</publishTime>
+      <publishTime>05/12/2018 13:15:43</publishTime>
     </File>
     <File Include="Views/Ekonomi/DigerMasrafTuru.cshtml">
-      <publishTime>04/24/2018 11:53:57</publishTime>
+      <publishTime>05/12/2018 13:16:24</publishTime>
     </File>
     <File Include="Views/Ekonomi/DigerMasrafTuruEkle.cshtml">
-      <publishTime>04/24/2018 11:52:11</publishTime>
+      <publishTime>05/12/2018 13:17:13</publishTime>
     </File>
     <File Include="Views/Ekonomi/FaturaEkle.cshtml">
-      <publishTime>04/24/2018 11:53:57</publishTime>
+      <publishTime>05/12/2018 15:13:05</publishTime>
     </File>
     <File Include="Views/Ekonomi/FaturaGor.cshtml">
-      <publishTime>04/24/2018 11:53:57</publishTime>
+      <publishTime>05/12/2018 15:36:23</publishTime>
     </File>
     <File Include="Views/Ekonomi/FaturaOde.cshtml">
-      <publishTime>04/24/2018 11:53:57</publishTime>
+      <publishTime>05/12/2018 15:15:40</publishTime>
     </File>
     <File Include="Views/Ekonomi/FaturaTuru.cshtml">
-      <publishTime>04/24/2018 11:53:57</publishTime>
+      <publishTime>05/12/2018 15:17:55</publishTime>
     </File>
     <File Include="Views/Ekonomi/FaturaTuruGor.cshtml">
-      <publishTime>04/24/2018 11:52:59</publishTime>
+      <publishTime>05/12/2018 15:18:16</publishTime>
     </File>
     <File Include="Views/Ekonomi/GenelDurum.cshtml">
       <publishTime>04/24/2018 11:53:57</publishTime>
@@ -446,25 +455,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/24/2018 11:53:57</publishTime>
     </File>
     <File Include="Views/Ekonomi/Masraflar.cshtml">
-      <publishTime>04/24/2018 11:53:29</publishTime>
+      <publishTime>05/12/2018 15:21:04</publishTime>
     </File>
     <File Include="Views/Ekonomi/TumMasraflar.cshtml">
       <publishTime>04/24/2018 11:53:44</publishTime>
     </File>
     <File Include="Views/Hizmetliler/Create.cshtml">
-      <publishTime>04/24/2018 11:44:36</publishTime>
+      <publishTime>05/12/2018 12:56:04</publishTime>
     </File>
     <File Include="Views/Hizmetliler/Delete.cshtml">
-      <publishTime>04/24/2018 11:44:36</publishTime>
+      <publishTime>05/12/2018 12:31:17</publishTime>
     </File>
     <File Include="Views/Hizmetliler/Details.cshtml">
-      <publishTime>04/24/2018 11:44:36</publishTime>
+      <publishTime>05/12/2018 12:30:26</publishTime>
     </File>
     <File Include="Views/Hizmetliler/Edit.cshtml">
-      <publishTime>04/24/2018 11:44:36</publishTime>
+      <publishTime>05/12/2018 12:29:27</publishTime>
     </File>
     <File Include="Views/Hizmetliler/Index.cshtml">
-      <publishTime>04/24/2018 11:44:34</publishTime>
+      <publishTime>05/12/2018 12:28:01</publishTime>
     </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>04/27/2018 19:46:46</publishTime>
@@ -478,8 +487,11 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Views/Home/EditProfileY.cshtml">
       <publishTime>04/27/2018 20:35:44</publishTime>
     </File>
+    <File Include="Views/Home/ErrorPage404.cshtml">
+      <publishTime>05/13/2018 06:47:16</publishTime>
+    </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>04/25/2018 11:08:17</publishTime>
+      <publishTime>05/17/2018 23:20:26</publishTime>
     </File>
     <File Include="Views/Home/KullaniciCevap.cshtml">
       <publishTime>04/24/2018 12:09:10</publishTime>
@@ -524,34 +536,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/05/2018 20:40:54</publishTime>
     </File>
     <File Include="Views/Kullanici/Create.cshtml">
-      <publishTime>04/24/2018 11:43:21</publishTime>
+      <publishTime>05/12/2018 12:55:44</publishTime>
     </File>
     <File Include="Views/Kullanici/Delete.cshtml">
-      <publishTime>04/24/2018 11:43:21</publishTime>
+      <publishTime>05/12/2018 12:37:05</publishTime>
     </File>
     <File Include="Views/Kullanici/Details.cshtml">
-      <publishTime>04/24/2018 11:43:21</publishTime>
+      <publishTime>05/12/2018 12:36:16</publishTime>
     </File>
     <File Include="Views/Kullanici/Edit.cshtml">
-      <publishTime>04/24/2018 11:43:21</publishTime>
+      <publishTime>05/12/2018 12:35:13</publishTime>
     </File>
     <File Include="Views/Kullanici/Index.cshtml">
-      <publishTime>04/24/2018 11:43:19</publishTime>
+      <publishTime>05/12/2018 12:34:21</publishTime>
     </File>
     <File Include="Views/Personel/Create.cshtml">
-      <publishTime>04/24/2018 11:43:21</publishTime>
+      <publishTime>05/12/2018 12:55:18</publishTime>
     </File>
     <File Include="Views/Personel/Delete.cshtml">
-      <publishTime>04/24/2018 11:43:21</publishTime>
+      <publishTime>05/12/2018 12:24:03</publishTime>
     </File>
     <File Include="Views/Personel/Details.cshtml">
-      <publishTime>04/24/2018 11:43:21</publishTime>
+      <publishTime>05/12/2018 12:23:00</publishTime>
     </File>
     <File Include="Views/Personel/Edit.cshtml">
-      <publishTime>04/24/2018 11:43:21</publishTime>
+      <publishTime>05/12/2018 12:21:04</publishTime>
     </File>
     <File Include="Views/Personel/Index.cshtml">
-      <publishTime>04/24/2018 11:42:29</publishTime>
+      <publishTime>05/17/2018 15:25:47</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>02/01/2018 13:08:33</publishTime>
@@ -566,7 +578,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>01/21/2018 00:04:15</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/06/2018 00:17:46</publishTime>
+      <publishTime>05/17/2018 23:12:38</publishTime>
     </File>
     <File Include="Views/Shared/_PartialCategories.cshtml">
       <publishTime>04/24/2018 11:13:40</publishTime>
@@ -581,25 +593,25 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/24/2018 12:06:37</publishTime>
     </File>
     <File Include="Views/Yonetim/Create.cshtml">
-      <publishTime>04/24/2018 11:41:31</publishTime>
+      <publishTime>05/12/2018 12:55:55</publishTime>
     </File>
     <File Include="Views/Yonetim/Delete.cshtml">
-      <publishTime>04/24/2018 11:41:40</publishTime>
+      <publishTime>05/12/2018 12:09:12</publishTime>
     </File>
     <File Include="Views/Yonetim/Details.cshtml">
-      <publishTime>04/24/2018 11:41:40</publishTime>
+      <publishTime>05/12/2018 12:02:38</publishTime>
     </File>
     <File Include="Views/Yonetim/Edit.cshtml">
-      <publishTime>04/24/2018 11:41:40</publishTime>
+      <publishTime>05/12/2018 12:00:13</publishTime>
     </File>
     <File Include="Views/Yonetim/Index.cshtml">
-      <publishTime>04/24/2018 11:41:40</publishTime>
+      <publishTime>05/12/2018 11:57:48</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>01/10/2018 18:55:07</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/05/2018 18:20:36</publishTime>
+      <publishTime>05/17/2018 23:28:06</publishTime>
     </File>
     <File Include="XmlFile/KasaSifre.xml">
       <publishTime>03/07/2018 10:13:56</publishTime>

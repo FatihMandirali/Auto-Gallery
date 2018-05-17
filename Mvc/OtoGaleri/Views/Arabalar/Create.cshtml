@@ -1,5 +1,5 @@
 ﻿@model OtoGaleri_Entities.Tablolar.Arabalar
-
+@using OtoGaleri.RazorHelpers
 @{
     ViewBag.Title = "Create";
 }
@@ -227,7 +227,10 @@
                         <button type="submit" class="btn btn-success">
                             <span class="glyphicon glyphicon-plus"></span>Oluştur
                         </button>
-                        @Html.ActionLink("Listeye Dön", "Index", "Arabalar", null, new { @class = "btn btn-default" })
+                        @*@Html.ActionLink("Listeye Dön", "Index", "Arabalar", null, new { @class = "btn btn-default" })*@
+                        <a href="@Html.EncodedLink("", "Index", "Arabalar", new { }, new { @class = "form-control"})" class="btn btn-info">
+                           Listeye Dön
+                        </a>
                     </div>
                 </div>
             </div>

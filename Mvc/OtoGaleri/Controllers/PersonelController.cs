@@ -10,10 +10,11 @@ using System.Web.Mvc;
 using OtoGaleri_Entities.Tablolar;
 using OtoGaleri_BusinessLayer;
 using OtoGaleri_BusinessLayer.Result;
+using OtoGaleri.Utils;
 
 namespace OtoGaleri.Controllers
 {
-    public class PersonelController : Controller
+    public class PersonelController : BaseController
     {
         private PersonelManager p = new PersonelManager();
 
@@ -62,7 +63,7 @@ namespace OtoGaleri.Controllers
                     res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
                     return View(personeller);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
             return View(personeller);
@@ -98,7 +99,7 @@ namespace OtoGaleri.Controllers
                     res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
                     return View(personeller);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             return View(personeller);
         }
@@ -125,7 +126,7 @@ namespace OtoGaleri.Controllers
         {
             Personeller yoneticiler = p.Find(x => x.Id == id);
             p.Delete(yoneticiler);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
 
       

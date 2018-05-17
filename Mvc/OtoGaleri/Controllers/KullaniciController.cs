@@ -70,7 +70,7 @@ namespace OtoGaleri.Controllers
                     res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
                     return View(kullanicilar);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
 
             return View(kullanicilar);
@@ -106,7 +106,7 @@ namespace OtoGaleri.Controllers
                     res.Errors.ForEach(x => ModelState.AddModelError("", x.Message));
                     return View(kullanicilar);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Home");
             }
             return View(kullanicilar);
         }
@@ -133,7 +133,7 @@ namespace OtoGaleri.Controllers
         {
             Kullanicilar kk = k.Find(x => x.Id == id);
             k.Delete(kk);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index","Home");
         }
 
        
